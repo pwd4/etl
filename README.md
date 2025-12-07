@@ -26,7 +26,5 @@ docker-compose up -d
 ```
 
 ### 3. Доступы в UI
-- Airflow: http://localhost:8080 (admin/admin)
-- MinIO Console: http://localhost:9001 (minioadmin/minioadmin)
-- Streamlit Dashboard: http://localhost:8501
-- PostgreSQL: localhost:5432
+- Airflow: http://localhost:8080 (airflow/airflow)
+- MinIO Console: http://localhost:9001 (minio/minio123)
