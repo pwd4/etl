@@ -1,0 +1,28 @@
+# Аналитическая система прогнозирования валютных курсов
+
+## Описание
+End-to-end система для сбора, обработки данных и прогнозирования валютных курсов с использованием ML.
+
+## Технологический стек
+- **Data Lake**: MinIO
+- **Orchestration**: Apache Airflow
+- **Processing**: Apache Spark
+- **DWH**: PostgreSQL
+- **ML**: Prophet, Scikit-learn
+- **Dashboard**: Streamlit
+
+## Быстрый запуск
+
+### 1. Предварительные требования
+- Docker & Docker Compose
+- Python 3.10+
+
+### 2. Клонирование и настройка
+```bash
+git clone <ваш-репозиторий>
+cd currency_forecast_system
+pip install -r requirements.txt
+
+### 3. Запуск проекта
+```bash
+docker-compose up -d
