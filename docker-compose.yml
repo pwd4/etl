@@ -34,11 +34,9 @@ services:
       - postgres
       - minio
 
-    # Переопределяем ENTRYPOINT, запускаем наш скрипт напрямую
     entrypoint: ["/bin/bash", "/opt/airflow/scripts/entrypoint.sh"]
 
     environment:
-      # Генерация Fernet Key внутри entrypoint.sh
       AIRFLOW__CORE__FERNET_KEY: "auto"
 
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
@@ -46,7 +44,6 @@ services:
 
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
 
-      # Автоматическое создание пользователя Airflow
       _AIRFLOW_WWW_USER_CREATE: "true"
       _AIRFLOW_WWW_USER_USERNAME: "airflow"
       _AIRFLOW_WWW_USER_PASSWORD: "airflow"
@@ -61,9 +58,23 @@ services:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
-
-      # наш кастомный скрипт для генерации Fernet Key + init
       - ./scripts:/opt/airflow/scripts
+
+  # -----------------------------
+  # STREAMLIT DASHBOARD SERVICE
+  # -----------------------------
+  streamlit:
+    build: ./streamlit_app
+    container_name: currency_streamlit
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./streamlit_app:/app
+    environment:
+      DATABASE_URL: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
 
 volumes:
   postgres_data:
