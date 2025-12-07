@@ -17,12 +17,9 @@ End-to-end система для сбора, обработки данных и 
 - Docker & Docker Compose
 - Python 3.10+
 
-### 2. Клонирование и настройка
+### 2. Клонирование и запуск
 ```bash
-git clone <ваш-репозиторий>
+git clone git@github.com:pwd4/etl.git
 cd currency_forecast_system
 pip install -r requirements.txt
-
-### 3. Запуск проекта
-```bash
 docker-compose up -d
