@@ -37,6 +37,7 @@ services:
     entrypoint: ["/bin/bash", "/opt/airflow/scripts/entrypoint.sh"]
 
     environment:
+      PYTHONPATH: "/opt/airflow"
       AIRFLOW__CORE__FERNET_KEY: "auto"
 
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
@@ -59,6 +60,7 @@ services:
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
       - ./scripts:/opt/airflow/scripts
+      - ./src:/opt/airflow/src
 
   streamlit:
     build: ./streamlit_app

@@ -1,0 +1,46 @@
+[2025-12-07T17:15:41.716+0000] {processor.py:161} INFO - Started process (PID=350) to work on /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:15:41.717+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_brent.py for tasks to queue
+[2025-12-07T17:15:41.718+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:15:41.718+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:15:41.848+0000] {processor.py:840} INFO - DAG(s) 'dag_brent' retrieved from /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:15:41.961+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:15:41.961+0000] {override.py:1769} INFO - Created Permission View: can delete on DAG:dag_brent
+[2025-12-07T17:15:41.970+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:15:41.969+0000] {override.py:1769} INFO - Created Permission View: can read on DAG:dag_brent
+[2025-12-07T17:15:41.975+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:15:41.975+0000] {override.py:1769} INFO - Created Permission View: can edit on DAG:dag_brent
+[2025-12-07T17:15:41.976+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:15:41.976+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-07T17:15:41.984+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:15:41.984+0000] {dag.py:3058} INFO - Creating ORM DAG for dag_brent
+[2025-12-07T17:15:41.994+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:15:41.994+0000] {dag.py:3823} INFO - Setting next_dagrun for dag_brent to 2025-12-06 10:00:00+00:00, run_after=2025-12-07 10:00:00+00:00
+[2025-12-07T17:15:42.012+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_brent.py took 0.298 seconds
+[2025-12-07T17:16:12.335+0000] {processor.py:161} INFO - Started process (PID=370) to work on /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:16:12.336+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_brent.py for tasks to queue
+[2025-12-07T17:16:12.337+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:16:12.337+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:16:12.439+0000] {processor.py:840} INFO - DAG(s) 'dag_brent' retrieved from /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:16:12.461+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:16:12.461+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-07T17:16:12.479+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:16:12.478+0000] {dag.py:3823} INFO - Setting next_dagrun for dag_brent to 2025-12-06 10:00:00+00:00, run_after=2025-12-07 10:00:00+00:00
+[2025-12-07T17:16:12.495+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_brent.py took 0.162 seconds
+[2025-12-07T17:16:42.814+0000] {processor.py:161} INFO - Started process (PID=390) to work on /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:16:42.815+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_brent.py for tasks to queue
+[2025-12-07T17:16:42.816+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:16:42.816+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:16:42.913+0000] {processor.py:840} INFO - DAG(s) 'dag_brent' retrieved from /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:16:42.939+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:16:42.938+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-07T17:16:42.954+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:16:42.953+0000] {dag.py:3823} INFO - Setting next_dagrun for dag_brent to 2025-12-06 10:00:00+00:00, run_after=2025-12-07 10:00:00+00:00
+[2025-12-07T17:16:42.977+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_brent.py took 0.165 seconds
+[2025-12-07T17:17:13.467+0000] {processor.py:161} INFO - Started process (PID=432) to work on /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:17:13.468+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_brent.py for tasks to queue
+[2025-12-07T17:17:13.469+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:17:13.468+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:17:13.575+0000] {processor.py:840} INFO - DAG(s) 'dag_brent' retrieved from /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:17:13.604+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:17:13.604+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-07T17:17:13.624+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:17:13.624+0000] {dag.py:3823} INFO - Setting next_dagrun for dag_brent to 2025-12-07 10:00:00+00:00, run_after=2025-12-08 10:00:00+00:00
+[2025-12-07T17:17:13.657+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_brent.py took 0.192 seconds
+[2025-12-07T17:17:43.997+0000] {processor.py:161} INFO - Started process (PID=452) to work on /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:17:43.998+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_brent.py for tasks to queue
+[2025-12-07T17:17:43.999+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:17:43.999+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:17:44.104+0000] {processor.py:840} INFO - DAG(s) 'dag_brent' retrieved from /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:17:44.127+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:17:44.127+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-07T17:17:44.147+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:17:44.147+0000] {dag.py:3823} INFO - Setting next_dagrun for dag_brent to 2025-12-07 10:00:00+00:00, run_after=2025-12-08 10:00:00+00:00
+[2025-12-07T17:17:44.168+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_brent.py took 0.173 seconds
+[2025-12-07T17:18:14.471+0000] {processor.py:161} INFO - Started process (PID=472) to work on /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:18:14.473+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_brent.py for tasks to queue
+[2025-12-07T17:18:14.474+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:18:14.474+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:18:14.570+0000] {processor.py:840} INFO - DAG(s) 'dag_brent' retrieved from /opt/airflow/dags/dag_brent.py
+[2025-12-07T17:18:14.593+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:18:14.593+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-07T17:18:14.613+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:18:14.613+0000] {dag.py:3823} INFO - Setting next_dagrun for dag_brent to 2025-12-07 10:00:00+00:00, run_after=2025-12-08 10:00:00+00:00
+[2025-12-07T17:18:14.635+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_brent.py took 0.168 seconds

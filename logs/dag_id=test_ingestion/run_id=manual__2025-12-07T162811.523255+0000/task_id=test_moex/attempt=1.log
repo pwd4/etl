@@ -1,0 +1,15 @@
+[2025-12-07T16:28:15.154+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: test_ingestion.test_moex manual__2025-12-07T16:28:11.523255+00:00 [queued]>
+[2025-12-07T16:28:15.162+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: test_ingestion.test_moex manual__2025-12-07T16:28:11.523255+00:00 [queued]>
+[2025-12-07T16:28:15.162+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-12-07T16:28:15.171+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): test_moex> on 2025-12-07 16:28:11.523255+00:00
+[2025-12-07T16:28:15.175+0000] {standard_task_runner.py:60} INFO - Started process 1099 to run task
+[2025-12-07T16:28:15.178+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'test_ingestion', 'test_moex', 'manual__2025-12-07T16:28:11.523255+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/test_ingestion_dag.py', '--cfg-path', '/tmp/tmp8lvj4svd']
+[2025-12-07T16:28:15.180+0000] {standard_task_runner.py:88} INFO - Job 9: Subtask test_moex
+[2025-12-07T16:28:15.250+0000] {task_command.py:423} INFO - Running <TaskInstance: test_ingestion.test_moex manual__2025-12-07T16:28:11.523255+00:00 [running]> on host 993f81e1e02a
+[2025-12-07T16:28:15.315+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='test_ingestion' AIRFLOW_CTX_TASK_ID='test_moex' AIRFLOW_CTX_EXECUTION_DATE='2025-12-07T16:28:11.523255+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-07T16:28:11.523255+00:00'
+[2025-12-07T16:28:16.354+0000] {logging_mixin.py:188} INFO - === Нефть BRENT ===
+[2025-12-07T16:28:16.354+0000] {logging_mixin.py:188} INFO - [{'date': '2024-12-26', 'open': None, 'low': None, 'high': None, 'close': None, 'settle_price': 77.74, 'volume': None, 'waprice': None}, {'date': '2024-12-27', 'open': None, 'low': None, 'high': None, 'close': None, 'settle_price': 76.0, 'volume': None, 'waprice': None}, {'date': '2024-12-28', 'open': None, 'low': None, 'high': None, 'close': None, 'settle_price': 75.42, 'volume': None, 'waprice': None}]
+[2025-12-07T16:28:16.429+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-12-07T16:28:16.436+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=test_ingestion, task_id=test_moex, execution_date=20251207T162811, start_date=20251207T162815, end_date=20251207T162816
+[2025-12-07T16:28:16.477+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-12-07T16:28:16.490+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

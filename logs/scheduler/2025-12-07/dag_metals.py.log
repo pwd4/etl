@@ -1,0 +1,46 @@
+[2025-12-07T17:15:41.724+0000] {processor.py:161} INFO - Started process (PID=353) to work on /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:15:41.725+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_metals.py for tasks to queue
+[2025-12-07T17:15:41.726+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:15:41.726+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:15:41.849+0000] {processor.py:840} INFO - DAG(s) 'dag_metals' retrieved from /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:15:41.963+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:15:41.963+0000] {override.py:1769} INFO - Created Permission View: can delete on DAG:dag_metals
+[2025-12-07T17:15:41.973+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:15:41.972+0000] {override.py:1769} INFO - Created Permission View: can read on DAG:dag_metals
+[2025-12-07T17:15:41.978+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:15:41.978+0000] {override.py:1769} INFO - Created Permission View: can edit on DAG:dag_metals
+[2025-12-07T17:15:41.979+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:15:41.979+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-07T17:15:41.987+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:15:41.987+0000] {dag.py:3058} INFO - Creating ORM DAG for dag_metals
+[2025-12-07T17:15:41.995+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:15:41.995+0000] {dag.py:3823} INFO - Setting next_dagrun for dag_metals to 2025-12-06 12:00:00+00:00, run_after=2025-12-07 12:00:00+00:00
+[2025-12-07T17:15:42.014+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_metals.py took 0.294 seconds
+[2025-12-07T17:16:12.342+0000] {processor.py:161} INFO - Started process (PID=373) to work on /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:16:12.343+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_metals.py for tasks to queue
+[2025-12-07T17:16:12.344+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:16:12.344+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:16:12.436+0000] {processor.py:840} INFO - DAG(s) 'dag_metals' retrieved from /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:16:12.460+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:16:12.460+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-07T17:16:12.479+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:16:12.478+0000] {dag.py:3823} INFO - Setting next_dagrun for dag_metals to 2025-12-06 12:00:00+00:00, run_after=2025-12-07 12:00:00+00:00
+[2025-12-07T17:16:12.496+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_metals.py took 0.156 seconds
+[2025-12-07T17:16:42.821+0000] {processor.py:161} INFO - Started process (PID=393) to work on /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:16:42.822+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_metals.py for tasks to queue
+[2025-12-07T17:16:42.822+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:16:42.822+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:16:42.911+0000] {processor.py:840} INFO - DAG(s) 'dag_metals' retrieved from /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:16:42.937+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:16:42.937+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-07T17:16:42.952+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:16:42.952+0000] {dag.py:3823} INFO - Setting next_dagrun for dag_metals to 2025-12-06 12:00:00+00:00, run_after=2025-12-07 12:00:00+00:00
+[2025-12-07T17:16:42.975+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_metals.py took 0.157 seconds
+[2025-12-07T17:17:13.476+0000] {processor.py:161} INFO - Started process (PID=435) to work on /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:17:13.477+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_metals.py for tasks to queue
+[2025-12-07T17:17:13.478+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:17:13.477+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:17:13.586+0000] {processor.py:840} INFO - DAG(s) 'dag_metals' retrieved from /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:17:13.615+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:17:13.615+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-07T17:17:13.639+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:17:13.639+0000] {dag.py:3823} INFO - Setting next_dagrun for dag_metals to 2025-12-07 12:00:00+00:00, run_after=2025-12-08 12:00:00+00:00
+[2025-12-07T17:17:13.689+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_metals.py took 0.215 seconds
+[2025-12-07T17:17:44.005+0000] {processor.py:161} INFO - Started process (PID=455) to work on /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:17:44.006+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_metals.py for tasks to queue
+[2025-12-07T17:17:44.007+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:17:44.007+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:17:44.104+0000] {processor.py:840} INFO - DAG(s) 'dag_metals' retrieved from /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:17:44.127+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:17:44.127+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-07T17:17:44.147+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:17:44.147+0000] {dag.py:3823} INFO - Setting next_dagrun for dag_metals to 2025-12-07 12:00:00+00:00, run_after=2025-12-08 12:00:00+00:00
+[2025-12-07T17:17:44.168+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_metals.py took 0.165 seconds
+[2025-12-07T17:18:14.481+0000] {processor.py:161} INFO - Started process (PID=475) to work on /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:18:14.483+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_metals.py for tasks to queue
+[2025-12-07T17:18:14.483+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:18:14.483+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:18:14.572+0000] {processor.py:840} INFO - DAG(s) 'dag_metals' retrieved from /opt/airflow/dags/dag_metals.py
+[2025-12-07T17:18:14.592+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:18:14.592+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-07T17:18:14.613+0000] {logging_mixin.py:188} INFO - [2025-12-07T17:18:14.613+0000] {dag.py:3823} INFO - Setting next_dagrun for dag_metals to 2025-12-07 12:00:00+00:00, run_after=2025-12-08 12:00:00+00:00
+[2025-12-07T17:18:14.634+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_metals.py took 0.156 seconds

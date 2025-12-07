@@ -37,4 +37,4 @@ docker-compose up -d
 - Airflow: http://localhost:8080 (airflow/airflow)
 - MinIO Console: http://localhost:9001 (minio/minio123)
 - pgAdmin http://localhost:5050 (admin@admin.com/admin)
-
+- Dashboard Streamlit http://localhost:8501/

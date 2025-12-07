@@ -1,56 +1,85 @@
-import requests
+from datetime import datetime, timedelta
 
-class MoexClient:
+from data_ingestion.cbr_client import CBRClient
+from data_ingestion.moex_client import MoexClient
+from data_ingestion.storage import (
+    save_rows_to_postgres,
+    save_json_to_minio,
+)
+
+
+# ----------- CURRENCIES -----------
+
+def load_currencies_for_date(date_iso: str):
     """
-    Клиент для получения цены на нефть BRENT
-    через официальный MOEX ISS API.
+    Загружает курсы валют ЦБ РФ за одну дату.
+    date_iso: 'YYYY-MM-DD'
     """
 
-    BASE_URL = "https://iss.moex.com/iss/history/engines/futures/markets/forts/securities"
+    dt = datetime.strptime(date_iso, "%Y-%m-%d")
+    cbr_date = dt.strftime("%d/%m/%Y")
 
-    def get_brent_history(self, ticker: str = "BRF6", start: str = "2024-01-01") -> list:
-        """
-        Загрузка исторических котировок фьючерса BRENT.
-        Возвращает список словарей вида:
-        {
-            "date": "2025-01-10",
-            "close": 79.99,
-            "open": 79.62,
-            "high": 79.99,
-            "low": 79.62,
-            "settleprice": 79.99
-        }
-        """
+    client = CBRClient()
+    rows = client.get_currency_rates(cbr_date)
 
-        url = f"{self.BASE_URL}/{ticker}.json?from={start}"
-        response = requests.get(url, timeout=10)
-        response.raise_for_status()
+    save_rows_to_postgres(
+        table="currency_rates",
+        rows=rows,
+        columns=["date", "char_code", "nominal", "value"],
+        primary_key="date"
+    )
 
-        data = response.json()
+    save_json_to_minio(rows, key=f"currencies/{date_iso}.json")
 
-        block = data.get("history", {})
-        rows = block.get("data", [])
-        columns = block.get("columns", [])
-
-        result = []
-        for row in rows:
-            item = dict(zip(columns, row))
-
-            result.append({
-                "date": item.get("TRADEDATE"),
-                "open": item.get("OPEN"),
-                "low": item.get("LOW"),
-                "high": item.get("HIGH"),
-                "close": item.get("CLOSE"),
-                "settle_price": item.get("SETTLEPRICE"),
-                "volume": item.get("VOLUME"),
-                "waprice": item.get("WAPRICE"),
-            })
-
-        return result
+    return rows
 
 
-# Локальная проверка
-if __name__ == "__main__":
+# ----------- METALS -----------
+
+def load_metals_for_period(date_iso: str):
+    """
+    Загружает котировки металлов за один день (в API нужен диапазон).
+    """
+
+    dt = datetime.strptime(date_iso, "%Y-%m-%d")
+    d1 = dt.strftime("%d/%m/%Y")
+    d2 = dt.strftime("%d/%m/%Y")
+
+    client = CBRClient()
+    rows = client.get_metals(d1, d2)
+
+    save_rows_to_postgres(
+        table="metal_quotes",
+        rows=rows,
+        columns=["date", "metal_code", "buy", "sell"],
+        primary_key="date"
+    )
+
+    save_json_to_minio(rows, key=f"metals/{date_iso}.json")
+
+    return rows
+
+
+# ----------- BRENT -----------
+
+def load_brent_history(start: str):
+    """
+    Загружает BRENT начиная с указанной даты YYYY-MM-DD
+    """
+
     client = MoexClient()
-    print(client.get_brent_history()[:5])
+    rows = client.get_brent_history(start=start)
+
+    save_rows_to_postgres(
+        table="brent_quotes",
+        rows=rows,
+        columns=[
+            "date", "open", "low", "high", "close",
+            "settle_price", "volume", "waprice"
+        ],
+        primary_key="date"
+    )
+
+    save_json_to_minio(rows, key=f"brent/{start}.json")
+
+    return rows
