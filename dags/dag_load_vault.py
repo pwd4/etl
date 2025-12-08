@@ -1,5 +1,3 @@
-# dags/dag_load_vault.py
-
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 
@@ -9,6 +7,7 @@ import hashlib
 
 import psycopg2
 import boto3
+
 
 # ----------------------------------------------------------
 # CONFIG
@@ -32,11 +31,8 @@ MINIO_BUCKET = "currency-data"
 
 def get_pg_conn():
     return psycopg2.connect(
-        host=PG_HOST,
-        port=PG_PORT,
-        dbname=PG_DB,
-        user=PG_USER,
-        password=PG_PASSWORD,
+        host=PG_HOST, port=PG_PORT, dbname=PG_DB,
+        user=PG_USER, password=PG_PASSWORD
     )
 
 
@@ -54,128 +50,150 @@ def md5_key(*parts) -> str:
     return hashlib.md5(raw.encode("utf-8")).hexdigest()
 
 
-def parse_date_ddmmyyyy_slash(s):  # "07/12/2025"
+# date parsers
+def parse_date_ddmmyyyy_slash(s):
     return datetime.strptime(s, "%d/%m/%Y").date()
 
 
-def parse_date_ddmmyyyy_dot(s):  # "06.12.2025"
+def parse_date_ddmmyyyy_dot(s):
     return datetime.strptime(s, "%d.%m.%Y").date()
 
 
-def parse_date_iso(s):  # "2025-12-01"
+def parse_date_iso(s):
     return datetime.strptime(s, "%Y-%m-%d").date()
 
 
 # ----------------------------------------------------------
-# TABLE CREATION (unchanged)
+# CREATE TABLES (DV2.0-compliant)
 # ----------------------------------------------------------
 
 def create_vault_tables(cur):
+
     cur.execute("CREATE SCHEMA IF NOT EXISTS vault;")
 
+    # HUBs
     cur.execute("""
         CREATE TABLE IF NOT EXISTS vault.hub_currency (
-            currency_hkey text PRIMARY KEY,
-            char_code text NOT NULL,
-            load_date timestamp NOT NULL
+            currency_hkey TEXT PRIMARY KEY,
+            char_code TEXT NOT NULL,
+            load_date TIMESTAMP NOT NULL
         );
     """)
 
     cur.execute("""
         CREATE TABLE IF NOT EXISTS vault.hub_metal (
-            metal_hkey text PRIMARY KEY,
-            metal_code int NOT NULL,
-            load_date timestamp NOT NULL
+            metal_hkey TEXT PRIMARY KEY,
+            metal_code INT NOT NULL,
+            load_date TIMESTAMP NOT NULL
         );
     """)
 
     cur.execute("""
         CREATE TABLE IF NOT EXISTS vault.hub_brent (
-            brent_hkey text PRIMARY KEY,
-            source text NOT NULL,
-            load_date timestamp NOT NULL
+            brent_hkey TEXT PRIMARY KEY,
+            source TEXT NOT NULL,
+            load_date TIMESTAMP NOT NULL
         );
     """)
 
     cur.execute("""
         CREATE TABLE IF NOT EXISTS vault.hub_date (
-            date_hkey text PRIMARY KEY,
-            date_value date NOT NULL,
-            load_date timestamp NOT NULL
+            date_hkey TEXT PRIMARY KEY,
+            date_value DATE NOT NULL,
+            load_date TIMESTAMP NOT NULL
         );
     """)
 
+    # LINKs
     cur.execute("""
         CREATE TABLE IF NOT EXISTS vault.link_currency_date (
-            link_currency_date_hkey text PRIMARY KEY,
-            currency_hkey text NOT NULL REFERENCES vault.hub_currency,
-            date_hkey text NOT NULL REFERENCES vault.hub_date,
-            load_date timestamp NOT NULL,
+            link_currency_date_hkey TEXT PRIMARY KEY,
+            currency_hkey TEXT NOT NULL REFERENCES vault.hub_currency,
+            date_hkey TEXT NOT NULL REFERENCES vault.hub_date,
+            load_date TIMESTAMP NOT NULL,
             UNIQUE(currency_hkey, date_hkey)
         );
     """)
 
     cur.execute("""
         CREATE TABLE IF NOT EXISTS vault.link_metal_date (
-            link_metal_date_hkey text PRIMARY KEY,
-            metal_hkey text NOT NULL REFERENCES vault.hub_metal,
-            date_hkey text NOT NULL REFERENCES vault.hub_date,
-            load_date timestamp NOT NULL,
+            link_metal_date_hkey TEXT PRIMARY KEY,
+            metal_hkey TEXT NOT NULL REFERENCES vault.hub_metal,
+            date_hkey TEXT NOT NULL REFERENCES vault.hub_date,
+            load_date TIMESTAMP NOT NULL,
             UNIQUE(metal_hkey, date_hkey)
         );
     """)
 
     cur.execute("""
         CREATE TABLE IF NOT EXISTS vault.link_brent_date (
-            link_brent_date_hkey text PRIMARY KEY,
-            brent_hkey text NOT NULL REFERENCES vault.hub_brent,
-            date_hkey text NOT NULL REFERENCES vault.hub_date,
-            load_date timestamp NOT NULL,
+            link_brent_date_hkey TEXT PRIMARY KEY,
+            brent_hkey TEXT NOT NULL REFERENCES vault.hub_brent,
+            date_hkey TEXT NOT NULL REFERENCES vault.hub_date,
+            load_date TIMESTAMP NOT NULL,
             UNIQUE(brent_hkey, date_hkey)
         );
     """)
 
+    # SATs (split by source = DV2.0 rule)
     cur.execute("""
         CREATE TABLE IF NOT EXISTS vault.sat_currency_rate (
-            currency_hkey text NOT NULL,
-            rate_date date NOT NULL,
-            nominal numeric,
-            value numeric,
-            load_date timestamp NOT NULL
+            currency_hkey TEXT NOT NULL,
+            rate_date DATE NOT NULL,
+            nominal NUMERIC,
+            value NUMERIC,
+            load_date TIMESTAMP NOT NULL,
+            record_source TEXT NOT NULL,
+            UNIQUE(currency_hkey, rate_date)
         );
     """)
 
     cur.execute("""
         CREATE TABLE IF NOT EXISTS vault.sat_metal_price (
-            metal_hkey text NOT NULL,
-            price_date date NOT NULL,
-            buy numeric,
-            sell numeric,
-            load_date timestamp NOT NULL
+            metal_hkey TEXT NOT NULL,
+            price_date DATE NOT NULL,
+            buy NUMERIC,
+            sell NUMERIC,
+            load_date TIMESTAMP NOT NULL,
+            record_source TEXT NOT NULL,
+            UNIQUE(metal_hkey, price_date)
         );
     """)
 
     cur.execute("""
-        CREATE TABLE IF NOT EXISTS vault.sat_brent_price (
-            brent_hkey text NOT NULL,
-            price_date date NOT NULL,
-            value numeric,
-            open numeric,
-            high numeric,
-            low numeric,
-            volume numeric,
-            load_date timestamp NOT NULL
+        CREATE TABLE IF NOT EXISTS vault.sat_brent_eia_price (
+            brent_hkey TEXT NOT NULL,
+            price_date DATE NOT NULL,
+            value NUMERIC,
+            load_date TIMESTAMP NOT NULL,
+            record_source TEXT NOT NULL,
+            UNIQUE(brent_hkey, price_date)
+        );
+    """)
+
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS vault.sat_brent_moex_price (
+            brent_hkey TEXT NOT NULL,
+            price_date DATE NOT NULL,
+            open NUMERIC,
+            high NUMERIC,
+            low NUMERIC,
+            close NUMERIC,
+            settle_price NUMERIC,
+            volume NUMERIC,
+            load_date TIMESTAMP NOT NULL,
+            record_source TEXT NOT NULL,
+            UNIQUE(brent_hkey, price_date)
         );
     """)
 
 
 # ----------------------------------------------------------
-# HUB + LINK HELPERS
+# HUB HELPERS
 # ----------------------------------------------------------
 
 def ensure_date_hub(cur, d, load_ts):
-    d_iso = d.isoformat()
-    h = md5_key("DATE", d_iso)
+    h = md5_key("DATE", d.isoformat())
     cur.execute("""
         INSERT INTO vault.hub_date(date_hkey, date_value, load_date)
         VALUES (%s, %s, %s)
@@ -216,61 +234,68 @@ def ensure_brent_hub(cur, source, load_ts):
     return h
 
 
-def ensure_link(cur, table, link_hkey, h1, h2, load_ts):
-    cur.execute(f"""
-        INSERT INTO vault.{table}(link_{table}_hkey, {table.split('_')[1]}_hkey, date_hkey, load_date)
-        VALUES (%s, %s, %s, %s)
-        ON CONFLICT ({table.split('_')[1]}_hkey, date_hkey) DO NOTHING;
-    """, (link_hkey, h1, h2, load_ts))
-
-
 # ----------------------------------------------------------
-# LOADERS
+# LOADERS – CURRENCIES
 # ----------------------------------------------------------
 
-def load_currency(cur, rows):
+def load_currency(cur, data):
+
     load_ts = datetime.utcnow()
-    for r in rows:
+    records = data.get("records", [])
+    if not records:
+        return
+
+    for r in records:
         try:
             d = parse_date_ddmmyyyy_slash(r["date"])
         except:
             continue
 
-        code = r["char_code"]
-        nominal = r.get("nominal")
-        value = r.get("value")
-
-        h_curr = ensure_currency_hub(cur, code, load_ts)
+        h_curr = ensure_currency_hub(cur, r["char_code"], load_ts)
         h_date = ensure_date_hub(cur, d, load_ts)
 
+        # LINK
         link_hkey = md5_key("L_CURR_DATE", h_curr, h_date)
         cur.execute("""
             INSERT INTO vault.link_currency_date(
                 link_currency_date_hkey, currency_hkey, date_hkey, load_date
             )
             VALUES (%s, %s, %s, %s)
-            ON CONFLICT (currency_hkey, date_hkey) DO NOTHING;
+            ON CONFLICT DO NOTHING;
         """, (link_hkey, h_curr, h_date, load_ts))
 
+        # SAT (no duplicates)
         cur.execute("""
-            INSERT INTO vault.sat_currency_rate(currency_hkey, rate_date, nominal, value, load_date)
-            VALUES (%s, %s, %s, %s, %s);
-        """, (h_curr, d, nominal, value, load_ts))
+            INSERT INTO vault.sat_currency_rate(
+                currency_hkey, rate_date, nominal, value, load_date, record_source
+            )
+            VALUES (%s, %s, %s, %s, %s, 'CBR')
+            ON CONFLICT DO NOTHING;
+        """, (
+            h_curr, d,
+            r.get("nominal"), r.get("value"),
+            load_ts
+        ))
 
 
-def load_metals(cur, rows):
+# ----------------------------------------------------------
+# LOADERS – METALS
+# ----------------------------------------------------------
+
+def load_metals(cur, data):
+
     load_ts = datetime.utcnow()
-    for r in rows:
+    records = data.get("records", [])
+    if not records:
+        return
+
+    for r in records:
         try:
             d = parse_date_ddmmyyyy_dot(r["date"])
         except:
             continue
 
-        metal_code = int(r["metal_code"])
-        buy = r.get("buy")
-        sell = r.get("sell")
-
-        h_m = ensure_metal_hub(cur, metal_code, load_ts)
+        h_m = ensure_metal_hub(cur, r["metal_code"], load_ts)
         h_date = ensure_date_hub(cur, d, load_ts)
 
         link_hkey = md5_key("L_METAL_DATE", h_m, h_date)
@@ -283,34 +308,34 @@ def load_metals(cur, rows):
         """, (link_hkey, h_m, h_date, load_ts))
 
         cur.execute("""
-            INSERT INTO vault.sat_metal_price(metal_hkey, price_date, buy, sell, load_date)
-            VALUES (%s, %s, %s, %s, %s);
-        """, (h_m, d, buy, sell, load_ts))
+            INSERT INTO vault.sat_metal_price(
+                metal_hkey, price_date, buy, sell, load_date, record_source
+            )
+            VALUES (%s, %s, %s, %s, %s, 'CBR')
+            ON CONFLICT DO NOTHING;
+        """, (
+            h_m, d,
+            r.get("buy"), r.get("sell"),
+            load_ts
+        ))
 
 
 # ----------------------------------------------------------
-# BRENT EIA — NOW SUPPORTS historical/*
+# LOADERS – BRENT EIA
 # ----------------------------------------------------------
 
-def load_brent_eia(cur, data, source_name):
-    """
-    Supports:
-      {"date": "...", "records":[...]}
-      {"target":"...", "actual":"...", "records":[...]}
-    """
+def load_brent_eia(cur, data):
+
     load_ts = datetime.utcnow()
-    h_brent = ensure_brent_hub(cur, source_name, load_ts)
-
-    records = data.get("records") or []
+    h_brent = ensure_brent_hub(cur, "eia", load_ts)
+    records = data.get("records", [])
     if not records:
         return
 
-    # choose real date
-    base_date_str = data.get("actual") or data.get("date") or data.get("target")
+    base_date = data.get("actual") or data.get("date")
 
-    for rec in records:
-
-        d_str = rec.get("period", base_date_str)
+    for r in records:
+        d_str = r.get("period", base_date)
         try:
             d = parse_date_iso(d_str)
         except:
@@ -327,33 +352,33 @@ def load_brent_eia(cur, data, source_name):
             ON CONFLICT DO NOTHING;
         """, (link_hkey, h_brent, h_date, load_ts))
 
+        value = None
         try:
-            value = float(rec.get("value")) if rec.get("value") else None
+            value = float(r.get("value"))
         except:
-            value = None
+            pass
 
         cur.execute("""
-            INSERT INTO vault.sat_brent_price(
-                brent_hkey, price_date, value, open, high, low, volume, load_date
+            INSERT INTO vault.sat_brent_eia_price(
+                brent_hkey, price_date, value, load_date, record_source
             )
-            VALUES (%s, %s, %s, NULL, NULL, NULL, NULL, %s);
+            VALUES (%s, %s, %s, %s, 'EIA')
+            ON CONFLICT DO NOTHING;
         """, (h_brent, d, value, load_ts))
 
 
 # ----------------------------------------------------------
-# BRENT MOEX (unchanged, works)
+# LOADERS – BRENT MOEX
 # ----------------------------------------------------------
 
 def load_brent_moex(cur, data):
-    records = data.get("records") or []
-    if not records:
-        return
 
     load_ts = datetime.utcnow()
     h_brent = ensure_brent_hub(cur, "moex", load_ts)
+    records = data.get("records", [])
 
-    for rec in records:
-        d_str = rec.get("date") or data.get("date")
+    for r in records:
+        d_str = r.get("date")
         try:
             d = parse_date_iso(d_str)
         except:
@@ -370,26 +395,18 @@ def load_brent_moex(cur, data):
             ON CONFLICT DO NOTHING;
         """, (link_hkey, h_brent, h_date, load_ts))
 
-        settle = rec.get("settle_price") or rec.get("close")
-
-        try:
-            value = float(settle)
-        except:
-            value = None
-
         cur.execute("""
-            INSERT INTO vault.sat_brent_price(
-                brent_hkey, price_date, value, open, high, low, volume, load_date
+            INSERT INTO vault.sat_brent_moex_price(
+                brent_hkey, price_date,
+                open, high, low, close, settle_price, volume,
+                load_date, record_source
             )
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, 'MOEX')
+            ON CONFLICT DO NOTHING;
         """, (
-            h_brent,
-            d,
-            value,
-            rec.get("open"),
-            rec.get("high"),
-            rec.get("low"),
-            rec.get("volume"),
+            h_brent, d,
+            r.get("open"), r.get("high"), r.get("low"), r.get("close"),
+            r.get("settle_price"), r.get("volume"),
             load_ts
         ))
 
@@ -399,7 +416,6 @@ def load_brent_moex(cur, data):
 # ----------------------------------------------------------
 
 def load_vault():
-    print("Starting DV load...")
 
     s3 = get_s3()
     conn = get_pg_conn()
@@ -408,7 +424,6 @@ def load_vault():
     create_vault_tables(cur)
     conn.commit()
 
-    # collect all keys
     keys = []
     token = None
 
@@ -416,65 +431,60 @@ def load_vault():
         args = {"Bucket": MINIO_BUCKET}
         if token:
             args["ContinuationToken"] = token
-
         resp = s3.list_objects_v2(**args)
+
         for obj in resp.get("Contents", []):
             keys.append(obj["Key"])
 
         if not resp.get("IsTruncated"):
             break
-
         token = resp.get("NextContinuationToken")
 
-    print(f"Found {len(keys)} objects in MinIO")
-    print("Showing first 30 keys:")
-    for k in keys[:30]:
-        print("   ", k)
+    print(f"FOUND {len(keys)} objects")
 
-    # process sorted keys
     for key in sorted(keys):
 
         if not key.endswith(".json"):
             continue
 
-        print(f"\nProcessing {key}")
+        # Only historical folders:
+        if not (
+            key.startswith("historical/currencies/") or
+            key.startswith("historical/metals/") or
+            key.startswith("historical/brent_eia/") or
+            key.startswith("historical/brent_moex/")
+        ):
+            continue
+
+        print("Processing:", key)
 
         raw = s3.get_object(Bucket=MINIO_BUCKET, Key=key)["Body"].read().decode()
         try:
             data = json.loads(raw)
-        except Exception:
-            print("JSON parse error")
+        except:
+            print("JSON parse failed:", key)
             continue
 
-        # dispatch
         try:
-            if key.startswith("currencies/"):
-                if isinstance(data, list):
-                    load_currency(cur, data)
+            if key.startswith("historical/currencies/"):
+                load_currency(cur, data)
 
-            elif key.startswith("metals/"):
-                if isinstance(data, list):
-                    load_metals(cur, data)
-
-            elif key.startswith("brent_eia/"):
-                load_brent_eia(cur, data, "eia")
+            elif key.startswith("historical/metals/"):
+                load_metals(cur, data)
 
             elif key.startswith("historical/brent_eia/"):
-                load_brent_eia(cur, data, "eia")
+                load_brent_eia(cur, data)
 
-            elif key.startswith("brent_moex/"):
+            elif key.startswith("historical/brent_moex/"):
                 load_brent_moex(cur, data)
 
-            else:
-                print(f"Ignored key: {key}")
-
         except Exception as e:
-            print(f"ERROR processing {key}: {e}")
+            print(f"ERROR {key}: {e}")
 
     conn.commit()
     cur.close()
     conn.close()
-    print("DV load finished.")
+    print("DONE.")
 
 
 # ----------------------------------------------------------
@@ -482,14 +492,14 @@ def load_vault():
 # ----------------------------------------------------------
 
 with DAG(
-    "dag_load_vault",
+    dag_id="dag_load_vault",
     start_date=datetime(2024, 1, 1),
     schedule_interval="0 10 * * *",
     catchup=False,
-    tags=["vault"],
+    tags=["vault", "dv2"]
 ) as dag:
 
     load_task = PythonOperator(
         task_id="load_vault_from_minio",
-        python_callable=load_vault,
+        python_callable=load_vault
     )
