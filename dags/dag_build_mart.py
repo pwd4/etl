@@ -1,320 +1,306 @@
+from datetime import datetime
+
+import psycopg2
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from datetime import datetime
-import psycopg2
 
 
-PG_HOST = "postgres"
-PG_PORT = 5432
-PG_DB = "airflow"
-PG_USER = "airflow"
-PG_PASSWORD = "airflow"
-
-
+# =====================================================================
+# Подключение к БД
+# =====================================================================
 def get_conn():
     return psycopg2.connect(
-        host=PG_HOST,
-        port=PG_PORT,
-        dbname=PG_DB,
-        user=PG_USER,
-        password=PG_PASSWORD
+        host="postgres",
+        dbname="airflow",
+        user="airflow",
+        password="airflow",
     )
 
 
 # =====================================================================
-# CREATE MART TABLES
+# Создание схемы и таблиц mart
 # =====================================================================
 def create_mart_tables(cur):
-
+    # Схема mart
     cur.execute("CREATE SCHEMA IF NOT EXISTS mart;")
 
+    # Сначала дропаем факт, потом измерения
     cur.execute("""
-        CREATE TABLE IF NOT EXISTS mart.dim_date (
-            date_hkey TEXT PRIMARY KEY,
-            date_value DATE NOT NULL
+        DROP TABLE IF EXISTS mart.fact_market_prices;
+        DROP TABLE IF EXISTS mart.dim_brent;
+        DROP TABLE IF EXISTS mart.dim_currency;
+        DROP TABLE IF EXISTS mart.dim_metal;
+        DROP TABLE IF EXISTS mart.dim_date;
+    """)
+
+    # dim_date
+    cur.execute("""
+        CREATE TABLE mart.dim_date (
+            date_hkey   TEXT PRIMARY KEY,
+            date_value  DATE NOT NULL
         );
     """)
 
+    # dim_brent
     cur.execute("""
-        CREATE TABLE IF NOT EXISTS mart.dim_currency (
-            currency_hkey TEXT PRIMARY KEY,
-            char_code TEXT NOT NULL
+        CREATE TABLE mart.dim_brent (
+            brent_hkey  TEXT PRIMARY KEY,
+            source      TEXT NOT NULL
         );
     """)
 
+    # dim_currency
     cur.execute("""
-        CREATE TABLE IF NOT EXISTS mart.dim_metal (
-            metal_hkey TEXT PRIMARY KEY,
-            metal_code INT NOT NULL
+        CREATE TABLE mart.dim_currency (
+            currency_hkey  TEXT PRIMARY KEY,
+            char_code      TEXT NOT NULL
         );
     """)
 
+    # dim_metal
     cur.execute("""
-        CREATE TABLE IF NOT EXISTS mart.dim_brent (
-            brent_hkey TEXT PRIMARY KEY,
-            source TEXT NOT NULL
+        CREATE TABLE mart.dim_metal (
+            metal_hkey  TEXT PRIMARY KEY,
+            metal_code  INTEGER NOT NULL,
+            metal_name  TEXT
         );
     """)
 
+    # Факт — одна общая таблица под все типы сущностей
     cur.execute("""
-        CREATE TABLE IF NOT EXISTS mart.fact_market_prices (
-            date_hkey TEXT NOT NULL,
-            entity_type TEXT NOT NULL,
-            entity_code TEXT NOT NULL,
-            source TEXT,
-            value NUMERIC,
-            nominal NUMERIC,
-            buy NUMERIC,
-            sell NUMERIC,
-            load_date TIMESTAMP NOT NULL
+        CREATE TABLE mart.fact_market_prices (
+            date_hkey    TEXT NOT NULL,
+            entity_type  TEXT NOT NULL,   -- 'brent' / 'currency' / 'metal'
+            entity_code  TEXT NOT NULL,   -- 'eia', 'USD', '1' и т.п.
+            source       TEXT NOT NULL,   -- 'eia', 'moex', 'cbr_currency_api', 'cbr_metals_api'
+            value        NUMERIC,         -- курс / цена (brent / currency)
+            nominal      NUMERIC,         -- номинал валюты (для CBR)
+            buy          NUMERIC,         -- цены покупки металлов
+            sell         NUMERIC,         -- цены продажи металлов
+            load_date    TIMESTAMP NOT NULL
         );
     """)
 
 
 # =====================================================================
-# LOAD DIMENSIONS
+# Загрузка измерений из vault
 # =====================================================================
-def load_dimensions(cur):
-
+def load_dims(cur):
+    # dim_date — просто копия hub_date
     cur.execute("""
-        INSERT INTO mart.dim_date(date_hkey, date_value)
-        SELECT date_hkey, date_value
-        FROM vault.hub_date
-        ON CONFLICT (date_hkey) DO NOTHING;
+        INSERT INTO mart.dim_date (date_hkey, date_value)
+        SELECT
+            hd.date_hkey,
+            hd.date_value
+        FROM vault.hub_date hd;
     """)
 
+    # dim_brent
     cur.execute("""
-        INSERT INTO mart.dim_currency(currency_hkey, char_code)
-        SELECT currency_hkey, char_code
-        FROM vault.hub_currency
-        ON CONFLICT (currency_hkey) DO NOTHING;
+        INSERT INTO mart.dim_brent (brent_hkey, source)
+        SELECT
+            hb.brent_hkey,
+            hb.source
+        FROM vault.hub_brent hb;
     """)
 
+    # dim_currency
     cur.execute("""
-        INSERT INTO mart.dim_metal(metal_hkey, metal_code)
-        SELECT metal_hkey, metal_code
-        FROM vault.hub_metal
-        ON CONFLICT (metal_hkey) DO NOTHING;
+        INSERT INTO mart.dim_currency (currency_hkey, char_code)
+        SELECT
+            hc.currency_hkey,
+            hc.char_code
+        FROM vault.hub_currency hc;
     """)
 
+    # dim_metal + маппинг кода в название
     cur.execute("""
-        INSERT INTO mart.dim_brent(brent_hkey, source)
-        SELECT brent_hkey, source
-        FROM vault.hub_brent
-        ON CONFLICT (brent_hkey) DO NOTHING;
+        INSERT INTO mart.dim_metal (metal_hkey, metal_code, metal_name)
+        SELECT
+            hm.metal_hkey,
+            hm.metal_code,
+            CASE hm.metal_code
+                WHEN 1 THEN 'gold'
+                WHEN 2 THEN 'silver'
+                WHEN 3 THEN 'platinum'
+                WHEN 4 THEN 'palladium'
+                ELSE 'unknown'
+            END AS metal_name
+        FROM vault.hub_metal hm;
     """)
 
 
 # =====================================================================
-# LOAD FACT WITH DENSE FF + BF
+# Загрузка факта: БЕЗ заполнения пропусков, только реальные даты
 # =====================================================================
 def load_fact(cur):
-
-    cur.execute("TRUNCATE mart.fact_market_prices;")
-
-    # -----------------------------------------------------------------
-    # 1) RAW FACT (sparse)
-    # -----------------------------------------------------------------
+    # ---------- BRENT: EIA ----------
     cur.execute("""
-        WITH raw AS (
-
-            -- currencies
-            SELECT
-                d.date_value,
-                'currency' AS entity_type,
-                c.char_code AS entity_code,
-                NULL AS source,
-                s.value,
-                s.nominal,
-                NULL AS buy,
-                NULL AS sell,
-                s.load_date
-            FROM vault.sat_currency_rate s
-            JOIN vault.hub_currency c USING(currency_hkey)
-            JOIN vault.hub_date d ON d.date_value = s.rate_date
-
-            UNION ALL
-
-            -- metals
-            SELECT
-                d.date_value,
-                'metal',
-                m.metal_code::text,
-                NULL AS source,
-                NULL AS value,
-                NULL AS nominal,
-                s.buy,
-                s.sell,
-                s.load_date
-            FROM vault.sat_metal_price s
-            JOIN vault.hub_metal m USING(metal_hkey)
-            JOIN vault.hub_date d ON d.date_value = s.price_date
-
-            UNION ALL
-
-            -- Brent EIA
-            SELECT
-                d.date_value,
-                'brent',
-                'eia',
-                'eia' AS source,
-                s.value,
-                NULL AS nominal,
-                NULL AS buy,
-                NULL AS sell,
-                s.load_date
-            FROM vault.sat_brent_eia_price s
-            JOIN vault.hub_brent b USING(brent_hkey)
-            JOIN vault.hub_date d ON d.date_value = s.price_date
-            WHERE b.source = 'eia'
-
-            UNION ALL
-
-            -- Brent MOEX
-            SELECT
-                d.date_value,
-                'brent',
-                'moex',
-                'moex' AS source,
-                s.value,
-                NULL AS nominal,
-                NULL AS buy,
-                NULL AS sell,
-                s.load_date
-            FROM vault.sat_brent_moex_price s
-            JOIN vault.hub_brent b USING(brent_hkey)
-            JOIN vault.hub_date d ON d.date_value = s.price_date
-            WHERE b.source = 'moex'
-        ),
-
-        -- -----------------------------------------------------------------
-        -- 2) Create dense date–entity grid
-        -- -----------------------------------------------------------------
-        entities AS (
-            SELECT DISTINCT entity_type, entity_code, source FROM raw
-        ),
-        dense AS (
-            SELECT
-                dd.date_value,
-                e.entity_type,
-                e.entity_code,
-                e.source,
-                r.value,
-                r.nominal,
-                r.buy,
-                r.sell,
-                r.load_date
-            FROM mart.dim_date dd
-            CROSS JOIN entities e
-            LEFT JOIN raw r
-              ON r.date_value = dd.date_value
-             AND r.entity_type = e.entity_type
-             AND r.entity_code = e.entity_code
-             AND COALESCE(r.source,'x') = COALESCE(e.source,'x')
-        ),
-
-        -- -----------------------------------------------------------------
-        -- 3) Forward-fill using MAX window
-        -- -----------------------------------------------------------------
-        ff AS (
-            SELECT
-                date_value,
-                entity_type,
-                entity_code,
-                source,
-
-                MAX(value)   OVER w AS value_ff,
-                MAX(nominal) OVER w AS nominal_ff,
-                MAX(buy)     OVER w AS buy_ff,
-                MAX(sell)    OVER w AS sell_ff,
-                MAX(load_date) OVER w AS load_date_ff
-
-            FROM dense
-            WINDOW w AS (
-                PARTITION BY entity_type, entity_code, source
-                ORDER BY date_value
-                ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
-            )
-        ),
-
-        -- -----------------------------------------------------------------
-        -- 4) Back-fill using MAX over reversed window
-        -- -----------------------------------------------------------------
-        bf AS (
-            SELECT
-                date_value,
-                entity_type,
-                entity_code,
-                source,
-
-                MAX(value_ff)     OVER w AS value_final,
-                MAX(nominal_ff)   OVER w AS nominal_final,
-                MAX(buy_ff)       OVER w AS buy_final,
-                MAX(sell_ff)      OVER w AS sell_final,
-                MAX(load_date_ff) OVER w AS load_date_final
-
-            FROM ff
-            WINDOW w AS (
-                PARTITION BY entity_type, entity_code, source
-                ORDER BY date_value DESC
-                ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
-            )
+        INSERT INTO mart.fact_market_prices (
+            date_hkey,
+            entity_type,
+            entity_code,
+            source,
+            value,
+            nominal,
+            buy,
+            sell,
+            load_date
         )
-
-        INSERT INTO mart.fact_market_prices
         SELECT
-            d.date_hkey,
-            bf.entity_type,
-            bf.entity_code,
-            bf.source,
-            bf.value_final,
-            bf.nominal_final,
-            bf.buy_final,
-            bf.sell_final,
-            bf.load_date_final
-        FROM bf
-        JOIN mart.dim_date d
-          ON d.date_value = bf.date_value
-        ORDER BY d.date_value, entity_type, entity_code;
+            lbd.date_hkey                              AS date_hkey,
+            'brent'                                    AS entity_type,
+            hb.source                                  AS entity_code,   -- 'eia'
+            hb.source                                  AS source,
+            s.value                                    AS value,
+            NULL::NUMERIC                              AS nominal,
+            NULL::NUMERIC                              AS buy,
+            NULL::NUMERIC                              AS sell,
+            s.load_date                                AS load_date
+        FROM vault.hub_brent hb
+        JOIN vault.link_brent_date lbd
+          ON lbd.brent_hkey = hb.brent_hkey
+        JOIN vault.hub_date d
+          ON d.date_hkey = lbd.date_hkey
+        JOIN vault.sat_brent_eia_price s
+          ON s.brent_hkey = hb.brent_hkey
+         AND s.price_date = d.date_value
+        WHERE hb.source = 'eia';
+    """)
+
+    # ---------- BRENT: MOEX ----------
+    cur.execute("""
+        INSERT INTO mart.fact_market_prices (
+            date_hkey,
+            entity_type,
+            entity_code,
+            source,
+            value,
+            nominal,
+            buy,
+            sell,
+            load_date
+        )
+        SELECT
+            lbd.date_hkey                              AS date_hkey,
+            'brent'                                    AS entity_type,
+            hb.source                                  AS entity_code,   -- 'moex'
+            hb.source                                  AS source,
+            s.value                                    AS value,
+            NULL::NUMERIC                              AS nominal,
+            NULL::NUMERIC                              AS buy,
+            NULL::NUMERIC                              AS sell,
+            s.load_date                                AS load_date
+        FROM vault.hub_brent hb
+        JOIN vault.link_brent_date lbd
+          ON lbd.brent_hkey = hb.brent_hkey
+        JOIN vault.hub_date d
+          ON d.date_hkey = lbd.date_hkey
+        JOIN vault.sat_brent_moex_price s
+          ON s.brent_hkey = hb.brent_hkey
+         AND s.price_date = d.date_value
+        WHERE hb.source = 'moex';
+    """)
+
+    # ---------- CURRENCY (CBR) ----------
+    cur.execute("""
+        INSERT INTO mart.fact_market_prices (
+            date_hkey,
+            entity_type,
+            entity_code,
+            source,
+            value,
+            nominal,
+            buy,
+            sell,
+            load_date
+        )
+        SELECT
+            lcd.date_hkey                              AS date_hkey,
+            'currency'                                 AS entity_type,
+            hc.char_code                               AS entity_code,   -- 'USD', 'EUR', ...
+            'cbr_currency_api'                         AS source,
+            scr.value                                  AS value,
+            scr.nominal                                AS nominal,
+            NULL::NUMERIC                              AS buy,
+            NULL::NUMERIC                              AS sell,
+            scr.load_date                              AS load_date
+        FROM vault.hub_currency hc
+        JOIN vault.link_currency_date lcd
+          ON lcd.currency_hkey = hc.currency_hkey
+        JOIN vault.hub_date d
+          ON d.date_hkey = lcd.date_hkey
+        JOIN vault.sat_currency_rate scr
+          ON scr.currency_hkey = hc.currency_hkey
+         AND scr.rate_date = d.date_value;
+    """)
+
+    # ---------- METALS (CBR) ----------
+    cur.execute("""
+        INSERT INTO mart.fact_market_prices (
+            date_hkey,
+            entity_type,
+            entity_code,
+            source,
+            value,
+            nominal,
+            buy,
+            sell,
+            load_date
+        )
+        SELECT
+            lmd.date_hkey                              AS date_hkey,
+            'metal'                                    AS entity_type,
+            hm.metal_code::TEXT                        AS entity_code,   -- '1','2','3','4'
+            'cbr_metals_api'                           AS source,
+            NULL::NUMERIC                              AS value,
+            NULL::NUMERIC                              AS nominal,
+            smp.buy                                    AS buy,
+            smp.sell                                   AS sell,
+            smp.load_date                              AS load_date
+        FROM vault.hub_metal hm
+        JOIN vault.link_metal_date lmd
+          ON lmd.metal_hkey = hm.metal_hkey
+        JOIN vault.hub_date d
+          ON d.date_hkey = lmd.date_hkey
+        JOIN vault.sat_metal_price smp
+          ON smp.metal_hkey = hm.metal_hkey
+         AND smp.price_date = d.date_value;
     """)
 
 
 # =====================================================================
-# MAIN
+# Основная функция сборки витрины
 # =====================================================================
 def build_mart():
-    print("Building dense Data Mart with FF/BF...")
-
     conn = get_conn()
-    cur = conn.cursor()
-
-    create_mart_tables(cur)
-    conn.commit()
-
-    load_dimensions(cur)
-    conn.commit()
-
-    load_fact(cur)
-    conn.commit()
-
-    cur.close()
-    conn.close()
-
-    print("Dense Mart built successfully.")
+    try:
+        with conn:
+            with conn.cursor() as cur:
+                create_mart_tables(cur)
+                load_dims(cur)
+                load_fact(cur)
+    finally:
+        conn.close()
 
 
 # =====================================================================
 # DAG
 # =====================================================================
+default_args = {
+    "owner": "airflow",
+    "depends_on_past": False,
+}
+
 with DAG(
     dag_id="dag_build_mart",
     start_date=datetime(2024, 1, 1),
-    schedule_interval="0 11 * * *",
+    schedule_interval=None,   # запускаешь руками через UI
     catchup=False,
-    tags=["mart", "dense", "ffbf"]
+    default_args=default_args,
 ) as dag:
 
-    task = PythonOperator(
+    build_mart_task = PythonOperator(
         task_id="build_mart",
-        python_callable=build_mart
+        python_callable=build_mart,
     )
