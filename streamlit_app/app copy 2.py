@@ -1,4 +1,4 @@
-import streamlit as st 
+import streamlit as st
 import pandas as pd
 import os
 from sqlalchemy import create_engine
@@ -92,51 +92,24 @@ if df.empty:
 # MAIN GRAPH
 # -------------------------------------------------------
 
-metal_names = {"1": "Gold", "2": "Silver", "3": "Platinum", "4": "Palladium"}
-
 if entity_type == "currency":
     y_column = "value"
     title = f"Курс валюты {entity_code} к RUB"
-
-    fig = px.line(
-        df,
-        x="date",
-        y=y_column,
-        title=title,
-        markers=True
-    )
-
 elif entity_type == "metal":
-    title = f"Цена металла: {metal_names[entity_code]} (RUB)"
-
-    # Два графика: BUY и SELL
-    fig = go.Figure()
-
-    fig.add_trace(go.Scatter(
-        x=df["date"],
-        y=df["sell"],
-        mode="lines+markers",
-        name="SELL (RUB)"
-    ))
-
-    fig.add_trace(go.Scatter(
-        x=df["date"],
-        y=df["buy"],
-        mode="lines+markers",
-        name="BUY (RUB)"
-    ))
-
-else:  # brent
+    y_column = "buy"
+    title = f"Цена металла {entity_code}"
+else:
     y_column = "value"
     title = f"Цена нефти Brent ({entity_code.upper()})"
 
-    fig = px.line(
-        df,
-        x="date",
-        y=y_column,
-        title=title,
-        markers=True
-    )
+
+fig = px.line(
+    df,
+    x="date",
+    y=y_column,
+    title=title,
+    markers=True
+)
 
 fig.update_layout(height=450)
 
@@ -150,7 +123,6 @@ st.subheader("📄 Детали данных")
 
 st.dataframe(df[["date", "entity_type", "entity_code", "value", "buy", "sell", "nominal"]])
 
-
 # -------------------------------------------------------
 # STATISTICS
 # -------------------------------------------------------
@@ -158,18 +130,10 @@ st.subheader("📊 Статистика по ряду")
 
 col1, col2, col3, col4 = st.columns(4)
 
-if entity_type == "metal":
-    last_value = df["sell"].iloc[-1]
-    series = df["sell"]
-else:
-    last_value = df[y_column].iloc[-1]
-    series = df[y_column]
-
-col1.metric("📌 Последнее значение", round(last_value, 4))
-col2.metric("📈 Изменение за 7 дней", round(last_value - series.iloc[-7], 4) if len(series) > 7 else 0)
-col3.metric("📉 Минимум", round(series.min(), 4))
-col4.metric("📈 Максимум", round(series.max(), 4))
-
+col1.metric("📌 Последнее значение", round(df[y_column].iloc[-1], 4))
+col2.metric("📈 Изменение за 7 дней", round(df[y_column].iloc[-1] - df[y_column].iloc[-7], 4) if len(df) > 7 else 0)
+col3.metric("📉 Минимум", round(df[y_column].min(), 4))
+col4.metric("📈 Максимум", round(df[y_column].max(), 4))
 
 # -------------------------------------------------------
 # CORRELATION WITH USD
@@ -184,7 +148,7 @@ if entity_type != "currency" and "USD" in dims["currency"]["char_code"].values:
 
     merged = df.merge(df_usd, on="date", how="inner")
 
-    corr = merged[series.name].corr(merged["usd_value"])
+    corr = merged[y_column].corr(merged["usd_value"])
 
     st.subheader("🔗 Корреляция с USD/RUB")
     st.metric("Корреляция", round(corr, 4))

@@ -26781,3 +26781,1095 @@ File Path                                 PID    Runtime      # DAGs    # Errors
 /opt/airflow/dags/dag_metals.py                                    1           0  0.30s           2025-12-08T22:01:43
 /opt/airflow/dags/test_ingestion_dag.py                            1           0  0.26s           2025-12-08T22:01:47
 ================================================================================
+[2025-12-08T22:02:20.580+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                 1           0  0.30s           2025-12-08T22:02:14
+/opt/airflow/dags/dag_brent_moex.py                                1           0  0.25s           2025-12-08T22:02:15
+/opt/airflow/dags/dag_build_mart copy.py                           1           0  0.29s           2025-12-08T22:01:57
+/opt/airflow/dags/dag_build_mart.py                                1           0  0.12s           2025-12-08T22:01:57
+/opt/airflow/dags/dag_currencies.py                                1           0  0.28s           2025-12-08T22:02:14
+/opt/airflow/dags/dag_historical_load.py                           1           0  0.29s           2025-12-08T22:02:13
+/opt/airflow/dags/dag_load_vault.py                                1           0  0.26s           2025-12-08T22:02:13
+/opt/airflow/dags/dag_metals.py                                    1           0  0.31s           2025-12-08T22:02:14
+/opt/airflow/dags/test_ingestion_dag.py                            1           0  0.28s           2025-12-08T22:02:17
+================================================================================
+[2025-12-08T22:02:50.652+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                 1           0  0.15s           2025-12-08T22:02:44
+/opt/airflow/dags/dag_brent_moex.py                                1           0  0.14s           2025-12-08T22:02:45
+/opt/airflow/dags/dag_build_mart copy.py                           1           0  0.21s           2025-12-08T22:02:28
+/opt/airflow/dags/dag_build_mart.py                                1           0  0.32s           2025-12-08T22:02:27
+/opt/airflow/dags/dag_currencies.py                                1           0  0.17s           2025-12-08T22:02:44
+/opt/airflow/dags/dag_historical_load.py                           1           0  0.18s           2025-12-08T22:02:43
+/opt/airflow/dags/dag_load_vault.py                                1           0  0.29s           2025-12-08T22:02:43
+/opt/airflow/dags/dag_metals.py                                    1           0  0.15s           2025-12-08T22:02:44
+/opt/airflow/dags/test_ingestion_dag.py                            1           0  0.14s           2025-12-08T22:02:48
+================================================================================
+[2025-12-08T22:03:20.717+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                 1           0  0.16s           2025-12-08T22:03:15
+/opt/airflow/dags/dag_brent_moex.py                                1           0  0.16s           2025-12-08T22:03:16
+/opt/airflow/dags/dag_build_mart copy.py                           1           0  0.13s           2025-12-08T22:02:58
+/opt/airflow/dags/dag_build_mart.py                                1           0  0.09s           2025-12-08T22:02:58
+/opt/airflow/dags/dag_currencies.py                                1           0  0.17s           2025-12-08T22:03:15
+/opt/airflow/dags/dag_historical_load.py                           1           0  0.20s           2025-12-08T22:03:14
+/opt/airflow/dags/dag_load_vault.py                                1           0  0.18s           2025-12-08T22:03:14
+/opt/airflow/dags/dag_metals.py                                    1           0  0.16s           2025-12-08T22:03:15
+/opt/airflow/dags/test_ingestion_dag.py                            1           0  0.16s           2025-12-08T22:03:19
+================================================================================
+[2025-12-08T22:03:51.625+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                 1           0  0.16s           2025-12-08T22:03:46
+/opt/airflow/dags/dag_brent_moex.py                                1           0  0.15s           2025-12-08T22:03:47
+/opt/airflow/dags/dag_build_mart copy.py                           1           0  0.13s           2025-12-08T22:03:29
+/opt/airflow/dags/dag_build_mart.py                                1           0  0.20s           2025-12-08T22:03:30
+/opt/airflow/dags/dag_currencies.py                                1           0  0.14s           2025-12-08T22:03:46
+/opt/airflow/dags/dag_historical_load.py                           1           0  0.16s           2025-12-08T22:03:45
+/opt/airflow/dags/dag_load_vault.py                                1           0  0.15s           2025-12-08T22:03:45
+/opt/airflow/dags/dag_metals.py                                    1           0  0.17s           2025-12-08T22:03:46
+/opt/airflow/dags/test_ingestion_dag.py                            1           0  0.16s           2025-12-08T22:03:50
+================================================================================
+[2025-12-08T22:04:21.765+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                 1           0  0.20s           2025-12-08T22:04:17
+/opt/airflow/dags/dag_brent_moex.py                                1           0  0.18s           2025-12-08T22:04:17
+/opt/airflow/dags/dag_build_mart copy.py                           1           0  0.17s           2025-12-08T22:04:00
+/opt/airflow/dags/dag_build_mart.py                                1           0  0.11s           2025-12-08T22:04:00
+/opt/airflow/dags/dag_currencies.py                                1           0  0.18s           2025-12-08T22:04:17
+/opt/airflow/dags/dag_historical_load.py                           1           0  0.17s           2025-12-08T22:04:16
+/opt/airflow/dags/dag_load_vault.py                                1           0  0.14s           2025-12-08T22:04:16
+/opt/airflow/dags/dag_metals.py                                    1           0  0.21s           2025-12-08T22:04:17
+/opt/airflow/dags/test_ingestion_dag.py                            1           0  0.15s           2025-12-08T22:04:20
+================================================================================
+[2025-12-08T22:04:51.968+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                 1           0  0.17s           2025-12-08T22:04:47
+/opt/airflow/dags/dag_brent_moex.py                                1           0  0.20s           2025-12-08T22:04:48
+/opt/airflow/dags/dag_build_mart copy.py                           1           0  0.10s           2025-12-08T22:04:31
+/opt/airflow/dags/dag_build_mart.py                                1           0  0.15s           2025-12-08T22:04:31
+/opt/airflow/dags/dag_currencies.py                                1           0  0.17s           2025-12-08T22:04:47
+/opt/airflow/dags/dag_historical_load.py                           1           0  0.18s           2025-12-08T22:04:46
+/opt/airflow/dags/dag_load_vault.py                                1           0  0.16s           2025-12-08T22:04:46
+/opt/airflow/dags/dag_metals.py                                    1           0  0.21s           2025-12-08T22:04:47
+/opt/airflow/dags/test_ingestion_dag.py                            1           0  0.17s           2025-12-08T22:04:51
+================================================================================
+[2025-12-08T22:05:22.534+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                 1           0  0.19s           2025-12-08T22:05:18
+/opt/airflow/dags/dag_brent_moex.py                                1           0  0.19s           2025-12-08T22:05:18
+/opt/airflow/dags/dag_build_mart copy.py                           1           0  0.19s           2025-12-08T22:05:01
+/opt/airflow/dags/dag_build_mart.py                                1           0  0.14s           2025-12-08T22:05:01
+/opt/airflow/dags/dag_currencies.py                                1           0  0.20s           2025-12-08T22:05:18
+/opt/airflow/dags/dag_historical_load.py                           1           0  0.20s           2025-12-08T22:05:16
+/opt/airflow/dags/dag_load_vault.py                                1           0  0.18s           2025-12-08T22:05:16
+/opt/airflow/dags/dag_metals.py                                    1           0  0.19s           2025-12-08T22:05:18
+/opt/airflow/dags/test_ingestion_dag.py                            1           0  0.21s           2025-12-08T22:05:21
+================================================================================
+[2025-12-08T22:05:52.723+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                 PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                 1           0  0.16s           2025-12-08T22:05:48
+/opt/airflow/dags/dag_brent_moex.py                                1           0  0.15s           2025-12-08T22:05:48
+/opt/airflow/dags/dag_build_mart copy.py                           1           0  0.11s           2025-12-08T22:05:31
+/opt/airflow/dags/dag_build_mart.py                                1           0  0.15s           2025-12-08T22:05:31
+/opt/airflow/dags/dag_currencies.py                                1           0  0.19s           2025-12-08T22:05:48
+/opt/airflow/dags/dag_historical_load.py                           1           0  0.20s           2025-12-08T22:05:47
+/opt/airflow/dags/dag_load_vault.py                                1           0  0.18s           2025-12-08T22:05:47
+/opt/airflow/dags/dag_metals.py                                    1           0  0.17s           2025-12-08T22:05:48
+/opt/airflow/dags/test_ingestion_dag.py                            1           0  0.19s           2025-12-08T22:05:51
+================================================================================
+[2025-12-08T22:06:18.339+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2025-12-08T22:06:18.492+0000] {manager.py:741} INFO - There are 10 files in /opt/airflow/dags
+[2025-12-08T22:06:23.063+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.23s           2025-12-08T22:06:19
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.28s           2025-12-08T22:06:19
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.10s           2025-12-08T22:06:18
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.17s           2025-12-08T22:06:02
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.12s           2025-12-08T22:06:01
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.26s           2025-12-08T22:06:18
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.19s           2025-12-08T22:06:17
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.16s           2025-12-08T22:06:17
+/opt/airflow/dags/dag_metals.py                                      1           0  0.24s           2025-12-08T22:06:18
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.21s           2025-12-08T22:06:22
+================================================================================
+[2025-12-08T22:06:53.346+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.17s           2025-12-08T22:06:50
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.18s           2025-12-08T22:06:50
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.08s           2025-12-08T22:06:48
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.10s           2025-12-08T22:06:32
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.14s           2025-12-08T22:06:32
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.19s           2025-12-08T22:06:49
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.19s           2025-12-08T22:06:47
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.17s           2025-12-08T22:06:47
+/opt/airflow/dags/dag_metals.py                                      1           0  0.21s           2025-12-08T22:06:49
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.16s           2025-12-08T22:06:52
+================================================================================
+[2025-12-08T22:07:23.648+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.16s           2025-12-08T22:07:20
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.15s           2025-12-08T22:07:20
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.08s           2025-12-08T22:07:19
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.15s           2025-12-08T22:07:02
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.11s           2025-12-08T22:07:02
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.19s           2025-12-08T22:07:20
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.17s           2025-12-08T22:07:17
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.16s           2025-12-08T22:07:17
+/opt/airflow/dags/dag_metals.py                                      1           0  0.19s           2025-12-08T22:07:20
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.21s           2025-12-08T22:07:22
+================================================================================
+[2025-12-08T22:07:53.695+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.15s           2025-12-08T22:07:50
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.14s           2025-12-08T22:07:50
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.08s           2025-12-08T22:07:49
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.10s           2025-12-08T22:07:32
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.14s           2025-12-08T22:07:32
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.20s           2025-12-08T22:07:50
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.15s           2025-12-08T22:07:48
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.15s           2025-12-08T22:07:48
+/opt/airflow/dags/dag_metals.py                                      1           0  0.17s           2025-12-08T22:07:50
+/opt/airflow/dags/test_ingestion_dag.py     26808  0.00s             1           0  0.21s           2025-12-08T22:07:22
+================================================================================
+[2025-12-08T22:08:23.997+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.14s           2025-12-08T22:08:20
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.15s           2025-12-08T22:08:21
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.12s           2025-12-08T22:08:19
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.14s           2025-12-08T22:08:03
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.10s           2025-12-08T22:08:03
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.19s           2025-12-08T22:08:20
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.16s           2025-12-08T22:08:18
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.16s           2025-12-08T22:08:18
+/opt/airflow/dags/dag_metals.py                                      1           0  0.17s           2025-12-08T22:08:20
+/opt/airflow/dags/test_ingestion_dag.py     26858  0.00s             1           0  0.14s           2025-12-08T22:07:53
+================================================================================
+[2025-12-08T22:08:54.229+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.15s           2025-12-08T22:08:51
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.15s           2025-12-08T22:08:51
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.07s           2025-12-08T22:08:49
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.11s           2025-12-08T22:08:33
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.16s           2025-12-08T22:08:33
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.18s           2025-12-08T22:08:51
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.16s           2025-12-08T22:08:48
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.14s           2025-12-08T22:08:48
+/opt/airflow/dags/dag_metals.py                                      1           0  0.17s           2025-12-08T22:08:50
+/opt/airflow/dags/test_ingestion_dag.py     26908  0.00s             1           0  0.16s           2025-12-08T22:08:24
+================================================================================
+[2025-12-08T22:09:24.650+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.20s           2025-12-08T22:09:21
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.20s           2025-12-08T22:09:21
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.13s           2025-12-08T22:09:20
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.15s           2025-12-08T22:09:03
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.16s           2025-12-08T22:09:14
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.22s           2025-12-08T22:09:21
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.20s           2025-12-08T22:09:19
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.18s           2025-12-08T22:09:19
+/opt/airflow/dags/dag_metals.py                                      1           0  0.22s           2025-12-08T22:09:21
+/opt/airflow/dags/test_ingestion_dag.py     26963  0.00s             1           0  0.14s           2025-12-08T22:08:54
+================================================================================
+[2025-12-08T22:09:54.916+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.18s           2025-12-08T22:09:51
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.20s           2025-12-08T22:09:52
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.09s           2025-12-08T22:09:50
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.19s           2025-12-08T22:09:33
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.12s           2025-12-08T22:09:45
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.21s           2025-12-08T22:09:51
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.20s           2025-12-08T22:09:49
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.17s           2025-12-08T22:09:49
+/opt/airflow/dags/dag_metals.py                                      1           0  0.19s           2025-12-08T22:09:51
+/opt/airflow/dags/test_ingestion_dag.py     27019  0.00s             1           0  0.18s           2025-12-08T22:09:24
+================================================================================
+[2025-12-08T22:10:25.373+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.19s           2025-12-08T22:10:22
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.19s           2025-12-08T22:10:22
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.08s           2025-12-08T22:10:20
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.12s           2025-12-08T22:10:04
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.15s           2025-12-08T22:10:15
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.21s           2025-12-08T22:10:22
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.17s           2025-12-08T22:10:19
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.15s           2025-12-08T22:10:19
+/opt/airflow/dags/dag_metals.py                                      1           0  0.22s           2025-12-08T22:10:22
+/opt/airflow/dags/test_ingestion_dag.py     27069  0.00s             1           0  0.14s           2025-12-08T22:09:55
+================================================================================
+[2025-12-08T22:10:55.760+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.21s           2025-12-08T22:10:52
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.21s           2025-12-08T22:10:52
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.15s           2025-12-08T22:10:51
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.09s           2025-12-08T22:10:34
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.13s           2025-12-08T22:10:45
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.26s           2025-12-08T22:10:52
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.18s           2025-12-08T22:10:50
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.14s           2025-12-08T22:10:50
+/opt/airflow/dags/dag_metals.py                                      1           0  0.25s           2025-12-08T22:10:52
+/opt/airflow/dags/test_ingestion_dag.py     27123  0.00s             1           0  0.21s           2025-12-08T22:10:25
+================================================================================
+[2025-12-08T22:11:19.165+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2025-12-08T22:11:19.282+0000] {manager.py:741} INFO - There are 10 files in /opt/airflow/dags
+[2025-12-08T22:11:26.007+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.20s           2025-12-08T22:11:22
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.17s           2025-12-08T22:11:23
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.09s           2025-12-08T22:11:21
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.09s           2025-12-08T22:11:04
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.10s           2025-12-08T22:11:16
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.19s           2025-12-08T22:11:22
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.17s           2025-12-08T22:11:20
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.15s           2025-12-08T22:11:20
+/opt/airflow/dags/dag_metals.py                                      1           0  0.16s           2025-12-08T22:11:22
+/opt/airflow/dags/test_ingestion_dag.py     27173  0.00s             1           0  0.16s           2025-12-08T22:10:55
+================================================================================
+[2025-12-08T22:11:56.207+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.16s           2025-12-08T22:11:53
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.18s           2025-12-08T22:11:53
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.08s           2025-12-08T22:11:51
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.16s           2025-12-08T22:11:35
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.10s           2025-12-08T22:11:46
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.19s           2025-12-08T22:11:53
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.22s           2025-12-08T22:11:51
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.20s           2025-12-08T22:11:51
+/opt/airflow/dags/dag_metals.py                                      1           0  0.18s           2025-12-08T22:11:52
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.19s           2025-12-08T22:11:26
+================================================================================
+[2025-12-08T22:12:26.435+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.15s           2025-12-08T22:12:23
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.15s           2025-12-08T22:12:23
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.09s           2025-12-08T22:12:21
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.10s           2025-12-08T22:12:05
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.15s           2025-12-08T22:12:16
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.15s           2025-12-08T22:12:23
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.16s           2025-12-08T22:12:22
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.13s           2025-12-08T22:12:21
+/opt/airflow/dags/dag_metals.py                                      1           0  0.14s           2025-12-08T22:12:23
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.19s           2025-12-08T22:11:56
+================================================================================
+[2025-12-08T22:12:56.676+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.15s           2025-12-08T22:12:53
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.16s           2025-12-08T22:12:53
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.15s           2025-12-08T22:12:52
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.08s           2025-12-08T22:12:35
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.10s           2025-12-08T22:12:47
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.15s           2025-12-08T22:12:53
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.15s           2025-12-08T22:12:52
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.15s           2025-12-08T22:12:52
+/opt/airflow/dags/dag_metals.py                                      1           0  0.15s           2025-12-08T22:12:53
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.14s           2025-12-08T22:12:27
+================================================================================
+[2025-12-08T22:13:27.014+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.14s           2025-12-08T22:13:23
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.15s           2025-12-08T22:13:24
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.11s           2025-12-08T22:13:23
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.09s           2025-12-08T22:13:06
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.09s           2025-12-08T22:13:17
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.15s           2025-12-08T22:13:23
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.17s           2025-12-08T22:13:23
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.14s           2025-12-08T22:13:23
+/opt/airflow/dags/dag_metals.py                                      1           0  0.16s           2025-12-08T22:13:23
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.17s           2025-12-08T22:12:57
+================================================================================
+[2025-12-08T22:13:57.248+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.20s           2025-12-08T22:13:54
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.20s           2025-12-08T22:13:54
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.12s           2025-12-08T22:13:53
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.21s           2025-12-08T22:13:36
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.11s           2025-12-08T22:13:47
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.21s           2025-12-08T22:13:54
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.20s           2025-12-08T22:13:53
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.17s           2025-12-08T22:13:53
+/opt/airflow/dags/dag_metals.py                                      1           0  0.22s           2025-12-08T22:13:53
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.14s           2025-12-08T22:13:28
+================================================================================
+[2025-12-08T22:14:27.426+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.18s           2025-12-08T22:14:25
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.17s           2025-12-08T22:14:25
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.08s           2025-12-08T22:14:23
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.10s           2025-12-08T22:14:06
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.16s           2025-12-08T22:14:17
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.16s           2025-12-08T22:14:24
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.17s           2025-12-08T22:14:24
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.13s           2025-12-08T22:14:23
+/opt/airflow/dags/dag_metals.py                                      1           0  0.16s           2025-12-08T22:14:24
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.16s           2025-12-08T22:13:58
+================================================================================
+[2025-12-08T22:14:57.695+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.15s           2025-12-08T22:14:55
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.15s           2025-12-08T22:14:55
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.15s           2025-12-08T22:14:54
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.09s           2025-12-08T22:14:36
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.11s           2025-12-08T22:14:48
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.14s           2025-12-08T22:14:54
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.17s           2025-12-08T22:14:54
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.16s           2025-12-08T22:14:54
+/opt/airflow/dags/dag_metals.py                                      1           0  0.17s           2025-12-08T22:14:54
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.15s           2025-12-08T22:14:28
+================================================================================
+[2025-12-08T22:15:27.856+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.16s           2025-12-08T22:15:26
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.16s           2025-12-08T22:15:26
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.10s           2025-12-08T22:15:24
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.09s           2025-12-08T22:15:06
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.12s           2025-12-08T22:15:18
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.16s           2025-12-08T22:15:25
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.14s           2025-12-08T22:15:24
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.14s           2025-12-08T22:15:24
+/opt/airflow/dags/dag_metals.py                                      1           0  0.19s           2025-12-08T22:15:25
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.15s           2025-12-08T22:14:58
+================================================================================
+[2025-12-08T22:15:58.003+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.19s           2025-12-08T22:15:57
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.21s           2025-12-08T22:15:57
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.09s           2025-12-08T22:15:54
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.15s           2025-12-08T22:15:37
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.09s           2025-12-08T22:15:48
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.17s           2025-12-08T22:15:55
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.19s           2025-12-08T22:15:54
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.16s           2025-12-08T22:15:54
+/opt/airflow/dags/dag_metals.py                                      1           0  0.20s           2025-12-08T22:15:55
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.20s           2025-12-08T22:15:29
+================================================================================
+[2025-12-08T22:16:19.609+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2025-12-08T22:16:19.745+0000] {manager.py:741} INFO - There are 10 files in /opt/airflow/dags
+[2025-12-08T22:16:28.450+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.17s           2025-12-08T22:16:27
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.17s           2025-12-08T22:16:27
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.10s           2025-12-08T22:16:24
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.13s           2025-12-08T22:16:07
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.23s           2025-12-08T22:16:18
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.17s           2025-12-08T22:16:26
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.18s           2025-12-08T22:16:25
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.16s           2025-12-08T22:16:24
+/opt/airflow/dags/dag_metals.py                                      1           0  0.20s           2025-12-08T22:16:26
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.15s           2025-12-08T22:15:59
+================================================================================
+[2025-12-08T22:16:58.611+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.17s           2025-12-08T22:16:57
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.17s           2025-12-08T22:16:57
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.17s           2025-12-08T22:16:55
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.09s           2025-12-08T22:16:37
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.13s           2025-12-08T22:16:49
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.17s           2025-12-08T22:16:56
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.15s           2025-12-08T22:16:56
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.16s           2025-12-08T22:16:55
+/opt/airflow/dags/dag_metals.py                                      1           0  0.19s           2025-12-08T22:16:56
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.16s           2025-12-08T22:16:29
+================================================================================
+[2025-12-08T22:17:28.848+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.20s           2025-12-08T22:17:28
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.20s           2025-12-08T22:17:28
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.09s           2025-12-08T22:17:25
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.09s           2025-12-08T22:17:07
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.11s           2025-12-08T22:17:19
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.19s           2025-12-08T22:17:26
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.16s           2025-12-08T22:17:26
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.13s           2025-12-08T22:17:25
+/opt/airflow/dags/dag_metals.py                                      1           0  0.21s           2025-12-08T22:17:27
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.15s           2025-12-08T22:16:59
+================================================================================
+[2025-12-08T22:17:59.313+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.16s           2025-12-08T22:17:58
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.16s           2025-12-08T22:17:58
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.10s           2025-12-08T22:17:55
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.18s           2025-12-08T22:17:38
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.12s           2025-12-08T22:17:49
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.19s           2025-12-08T22:17:57
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.16s           2025-12-08T22:17:57
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.16s           2025-12-08T22:17:55
+/opt/airflow/dags/dag_metals.py                                      1           0  0.15s           2025-12-08T22:17:57
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.15s           2025-12-08T22:17:30
+================================================================================
+[2025-12-08T22:18:30.124+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.26s           2025-12-08T22:18:29
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.25s           2025-12-08T22:18:29
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.15s           2025-12-08T22:18:26
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.14s           2025-12-08T22:18:08
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.25s           2025-12-08T22:18:20
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.40s           2025-12-08T22:18:27
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.39s           2025-12-08T22:18:27
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.19s           2025-12-08T22:18:26
+/opt/airflow/dags/dag_metals.py                                      1           0  0.39s           2025-12-08T22:18:28
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.18s           2025-12-08T22:18:00
+================================================================================
+[2025-12-08T22:19:00.972+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.16s           2025-12-08T22:18:59
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.15s           2025-12-08T22:18:59
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.19s           2025-12-08T22:18:56
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.21s           2025-12-08T22:18:39
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.16s           2025-12-08T22:18:50
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.16s           2025-12-08T22:18:58
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.16s           2025-12-08T22:18:58
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.19s           2025-12-08T22:18:56
+/opt/airflow/dags/dag_metals.py                                      1           0  0.17s           2025-12-08T22:18:58
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.30s           2025-12-08T22:18:31
+================================================================================
+[2025-12-08T22:19:31.886+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.20s           2025-12-08T22:19:30
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.19s           2025-12-08T22:19:30
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.14s           2025-12-08T22:19:27
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.12s           2025-12-08T22:19:10
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.09s           2025-12-08T22:19:21
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.19s           2025-12-08T22:19:29
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.17s           2025-12-08T22:19:29
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.19s           2025-12-08T22:19:27
+/opt/airflow/dags/dag_metals.py                                      1           0  0.16s           2025-12-08T22:19:29
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.21s           2025-12-08T22:19:02
+================================================================================
+[2025-12-08T22:20:02.040+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.19s           2025-12-08T22:20:01
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.20s           2025-12-08T22:20:01
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.09s           2025-12-08T22:19:57
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.17s           2025-12-08T22:19:41
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.12s           2025-12-08T22:19:52
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.25s           2025-12-08T22:20:00
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.22s           2025-12-08T22:19:59
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.13s           2025-12-08T22:19:57
+/opt/airflow/dags/dag_metals.py                                      1           0  0.24s           2025-12-08T22:19:59
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.17s           2025-12-08T22:19:33
+================================================================================
+[2025-12-08T22:20:32.348+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.14s           2025-12-08T22:20:31
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.17s           2025-12-08T22:20:31
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.07s           2025-12-08T22:20:27
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.10s           2025-12-08T22:20:11
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.17s           2025-12-08T22:20:22
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.23s           2025-12-08T22:20:30
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.29s           2025-12-08T22:20:30
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.13s           2025-12-08T22:20:27
+/opt/airflow/dags/dag_metals.py                                      1           0  0.24s           2025-12-08T22:20:30
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.14s           2025-12-08T22:20:03
+================================================================================
+[2025-12-08T22:21:02.721+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.17s           2025-12-08T22:21:01
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.16s           2025-12-08T22:21:01
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.13s           2025-12-08T22:20:58
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.09s           2025-12-08T22:20:41
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.09s           2025-12-08T22:20:52
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.18s           2025-12-08T22:21:01
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.20s           2025-12-08T22:21:01
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.14s           2025-12-08T22:20:58
+/opt/airflow/dags/dag_metals.py                                      1           0  0.20s           2025-12-08T22:21:01
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.15s           2025-12-08T22:20:33
+================================================================================
+[2025-12-08T22:21:20.228+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2025-12-08T22:21:20.423+0000] {manager.py:741} INFO - There are 10 files in /opt/airflow/dags
+[2025-12-08T22:21:33.176+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.23s           2025-12-08T22:21:32
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.19s           2025-12-08T22:21:32
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.12s           2025-12-08T22:21:28
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.09s           2025-12-08T22:21:12
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.11s           2025-12-08T22:21:23
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.23s           2025-12-08T22:21:32
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.15s           2025-12-08T22:21:31
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.16s           2025-12-08T22:21:28
+/opt/airflow/dags/dag_metals.py                                      1           0  0.16s           2025-12-08T22:21:31
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.23s           2025-12-08T22:21:03
+================================================================================
+[2025-12-08T22:22:03.189+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.16s           2025-12-08T22:22:03
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.15s           2025-12-08T22:22:03
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.10s           2025-12-08T22:21:59
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.14s           2025-12-08T22:21:42
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.08s           2025-12-08T22:21:54
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.17s           2025-12-08T22:22:03
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.16s           2025-12-08T22:22:02
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.14s           2025-12-08T22:21:59
+/opt/airflow/dags/dag_metals.py                                      1           0  0.18s           2025-12-08T22:22:02
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.13s           2025-12-08T22:21:34
+================================================================================
+[2025-12-08T22:22:33.711+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.16s           2025-12-08T22:22:03
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.15s           2025-12-08T22:22:03
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.08s           2025-12-08T22:22:30
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.09s           2025-12-08T22:22:13
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.14s           2025-12-08T22:22:25
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.17s           2025-12-08T22:22:03
+/opt/airflow/dags/dag_historical_load.py    28248  0.01s             1           0  0.16s           2025-12-08T22:22:02
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.13s           2025-12-08T22:22:30
+/opt/airflow/dags/dag_metals.py             28251  0.00s             1           0  0.18s           2025-12-08T22:22:02
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.14s           2025-12-08T22:22:05
+================================================================================
+[2025-12-08T22:23:03.883+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.15s           2025-12-08T22:22:34
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.16s           2025-12-08T22:22:34
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.13s           2025-12-08T22:23:00
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.09s           2025-12-08T22:22:43
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.11s           2025-12-08T22:22:55
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.15s           2025-12-08T22:22:34
+/opt/airflow/dags/dag_historical_load.py    28298  0.00s             1           0  0.15s           2025-12-08T22:22:33
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.14s           2025-12-08T22:23:00
+/opt/airflow/dags/dag_metals.py                                      1           0  0.17s           2025-12-08T22:22:33
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.14s           2025-12-08T22:22:35
+================================================================================
+[2025-12-08T22:23:34.005+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.16s           2025-12-08T22:23:04
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.18s           2025-12-08T22:23:04
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.11s           2025-12-08T22:23:30
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.11s           2025-12-08T22:23:13
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.08s           2025-12-08T22:23:25
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.17s           2025-12-08T22:23:04
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.17s           2025-12-08T22:23:04
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.15s           2025-12-08T22:23:31
+/opt/airflow/dags/dag_metals.py                                      1           0  0.15s           2025-12-08T22:23:04
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.16s           2025-12-08T22:23:05
+================================================================================
+[2025-12-08T22:24:04.415+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.17s           2025-12-08T22:23:34
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.17s           2025-12-08T22:23:34
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.09s           2025-12-08T22:24:01
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.17s           2025-12-08T22:23:44
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.08s           2025-12-08T22:23:56
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.16s           2025-12-08T22:23:34
+/opt/airflow/dags/dag_historical_load.py    28398  0.01s             1           0  0.19s           2025-12-08T22:23:34
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.13s           2025-12-08T22:24:01
+/opt/airflow/dags/dag_metals.py             28401  0.00s             1           0  0.15s           2025-12-08T22:23:34
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.16s           2025-12-08T22:23:35
+================================================================================
+[2025-12-08T22:24:34.716+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.16s           2025-12-08T22:24:04
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.17s           2025-12-08T22:24:04
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.09s           2025-12-08T22:24:31
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.12s           2025-12-08T22:24:14
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.15s           2025-12-08T22:24:26
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.16s           2025-12-08T22:24:04
+/opt/airflow/dags/dag_historical_load.py    28448  0.01s             1           0  0.20s           2025-12-08T22:24:04
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.14s           2025-12-08T22:24:31
+/opt/airflow/dags/dag_metals.py             28451  0.00s             1           0  0.21s           2025-12-08T22:24:04
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.15s           2025-12-08T22:24:06
+================================================================================
+[2025-12-08T22:25:04.948+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.18s           2025-12-08T22:24:35
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.19s           2025-12-08T22:24:35
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.18s           2025-12-08T22:25:01
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.10s           2025-12-08T22:24:44
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.11s           2025-12-08T22:24:56
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.18s           2025-12-08T22:24:35
+/opt/airflow/dags/dag_historical_load.py    28498  0.00s             1           0  0.21s           2025-12-08T22:24:34
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.18s           2025-12-08T22:25:01
+/opt/airflow/dags/dag_metals.py                                      1           0  0.23s           2025-12-08T22:24:34
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.17s           2025-12-08T22:24:36
+================================================================================
+[2025-12-08T22:25:35.282+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.17s           2025-12-08T22:25:06
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.18s           2025-12-08T22:25:06
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.09s           2025-12-08T22:25:32
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.09s           2025-12-08T22:25:14
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.10s           2025-12-08T22:25:27
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.17s           2025-12-08T22:25:05
+/opt/airflow/dags/dag_historical_load.py    28548  0.02s             1           0  0.18s           2025-12-08T22:25:05
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.13s           2025-12-08T22:25:32
+/opt/airflow/dags/dag_metals.py             28551  0.00s             1           0  0.17s           2025-12-08T22:25:05
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.21s           2025-12-08T22:25:06
+================================================================================
+[2025-12-08T22:26:05.445+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.17s           2025-12-08T22:25:36
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.17s           2025-12-08T22:25:36
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.09s           2025-12-08T22:26:02
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.09s           2025-12-08T22:25:45
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.17s           2025-12-08T22:25:36
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.17s           2025-12-08T22:25:35
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.18s           2025-12-08T22:25:35
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.15s           2025-12-08T22:26:02
+/opt/airflow/dags/dag_metals.py                                      1           0  0.19s           2025-12-08T22:25:35
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.17s           2025-12-08T22:25:36
+================================================================================
+[2025-12-08T22:26:20.241+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2025-12-08T22:26:20.380+0000] {manager.py:741} INFO - There are 11 files in /opt/airflow/dags
+[2025-12-08T22:26:35.835+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.18s           2025-12-08T22:26:06
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.20s           2025-12-08T22:26:07
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.09s           2025-12-08T22:26:32
+/opt/airflow/dags/dag_build_mart copy 3.py                           1           0  0.11s           2025-12-08T22:26:20
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.10s           2025-12-08T22:26:15
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.17s           2025-12-08T22:26:06
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.24s           2025-12-08T22:26:05
+/opt/airflow/dags/dag_historical_load.py    28657  0.01s             1           0  0.20s           2025-12-08T22:26:05
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.15s           2025-12-08T22:26:32
+/opt/airflow/dags/dag_metals.py             28660  0.00s             1           0  0.22s           2025-12-08T22:26:05
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.20s           2025-12-08T22:26:07
+================================================================================
+[2025-12-08T22:27:05.972+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.16s           2025-12-08T22:26:37
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.17s           2025-12-08T22:26:37
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.09s           2025-12-08T22:27:02
+/opt/airflow/dags/dag_build_mart copy 3.py                           1           0  0.09s           2025-12-08T22:26:50
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.19s           2025-12-08T22:26:45
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.09s           2025-12-08T22:26:37
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.17s           2025-12-08T22:26:36
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.17s           2025-12-08T22:26:35
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.13s           2025-12-08T22:27:03
+/opt/airflow/dags/dag_metals.py                                      1           0  0.19s           2025-12-08T22:26:36
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.17s           2025-12-08T22:26:37
+================================================================================
+[2025-12-08T22:27:36.312+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.19s           2025-12-08T22:27:07
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.19s           2025-12-08T22:27:07
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.09s           2025-12-08T22:27:33
+/opt/airflow/dags/dag_build_mart copy 3.py                           1           0  0.22s           2025-12-08T22:27:21
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.11s           2025-12-08T22:27:15
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.11s           2025-12-08T22:27:07
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.18s           2025-12-08T22:27:06
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.19s           2025-12-08T22:27:06
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.13s           2025-12-08T22:27:33
+/opt/airflow/dags/dag_metals.py                                      1           0  0.21s           2025-12-08T22:27:06
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.20s           2025-12-08T22:27:07
+================================================================================
+[2025-12-08T22:28:06.568+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.16s           2025-12-08T22:27:37
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.20s           2025-12-08T22:27:37
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.14s           2025-12-08T22:28:03
+/opt/airflow/dags/dag_build_mart copy 3.py                           1           0  0.11s           2025-12-08T22:27:51
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.11s           2025-12-08T22:27:46
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.09s           2025-12-08T22:27:37
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.15s           2025-12-08T22:27:36
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.19s           2025-12-08T22:27:36
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.15s           2025-12-08T22:28:03
+/opt/airflow/dags/dag_metals.py             28822  0.00s             1           0  0.15s           2025-12-08T22:27:36
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.19s           2025-12-08T22:27:38
+================================================================================
+[2025-12-08T22:28:36.943+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.14s           2025-12-08T22:28:08
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.17s           2025-12-08T22:28:08
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.11s           2025-12-08T22:28:33
+/opt/airflow/dags/dag_build_mart copy 3.py                           1           0  0.10s           2025-12-08T22:28:21
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.09s           2025-12-08T22:28:16
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.11s           2025-12-08T22:28:07
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.17s           2025-12-08T22:28:06
+/opt/airflow/dags/dag_historical_load.py    28877  0.02s             1           0  0.19s           2025-12-08T22:28:06
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.15s           2025-12-08T22:28:33
+/opt/airflow/dags/dag_metals.py             28880  0.00s             1           0  0.16s           2025-12-08T22:28:06
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.15s           2025-12-08T22:28:08
+================================================================================
+[2025-12-08T22:29:05.134+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_build_mart copy 2.py exited with return code 1.
+[2025-12-08T22:29:05.137+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_load_vault.py exited with return code 1.
+[2025-12-08T22:29:07.117+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_build_mart copy 2.py                           0          -1  1.08s           2025-12-08T22:29:05
+/opt/airflow/dags/dag_load_vault.py                                  0          -1  1.06s           2025-12-08T22:29:05
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.17s           2025-12-08T22:28:38
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.18s           2025-12-08T22:28:38
+/opt/airflow/dags/dag_build_mart copy 3.py                           1           0  0.15s           2025-12-08T22:28:52
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.12s           2025-12-08T22:28:46
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.13s           2025-12-08T22:28:42
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.20s           2025-12-08T22:28:37
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.18s           2025-12-08T22:28:37
+/opt/airflow/dags/dag_metals.py                                      1           0  0.19s           2025-12-08T22:28:37
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.16s           2025-12-08T22:28:38
+================================================================================
+[2025-12-08T22:29:07.644+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_historical_load.py exited with return code 1.
+[2025-12-08T22:29:08.513+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_metals.py exited with return code 1.
+[2025-12-08T22:29:09.170+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_currencies.py exited with return code 1.
+[2025-12-08T22:29:09.430+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_brent_eia.py exited with return code 1.
+[2025-12-08T22:29:10.376+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_brent_moex.py exited with return code 1.
+[2025-12-08T22:29:10.723+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/test_ingestion_dag.py exited with return code 1.
+[2025-12-08T22:29:13.347+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_build_mart.py exited with return code 1.
+[2025-12-08T22:29:17.544+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_build_mart copy.py exited with return code 1.
+[2025-12-08T22:29:23.456+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_build_mart copy 3.py exited with return code 1.
+[2025-12-08T22:29:35.960+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_build_mart copy 2.py exited with return code 1.
+[2025-12-08T22:29:36.938+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_load_vault.py exited with return code 1.
+[2025-12-08T22:29:37.845+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                     PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   0          -1  0.89s           2025-12-08T22:29:09
+/opt/airflow/dags/dag_brent_moex.py                                  0          -1  1.19s           2025-12-08T22:29:10
+/opt/airflow/dags/dag_build_mart copy 2.py                           0          -1  0.31s           2025-12-08T22:29:35
+/opt/airflow/dags/dag_build_mart copy 3.py                           0          -1  0.99s           2025-12-08T22:29:23
+/opt/airflow/dags/dag_build_mart copy.py                             0          -1  0.72s           2025-12-08T22:29:17
+/opt/airflow/dags/dag_build_mart.py                                  0          -1  0.58s           2025-12-08T22:29:13
+/opt/airflow/dags/dag_currencies.py                                  0          -1  1.50s           2025-12-08T22:29:09
+/opt/airflow/dags/dag_historical_load.py    28994  0.00s             0          -1  0.44s           2025-12-08T22:29:07
+/opt/airflow/dags/dag_load_vault.py                                  0          -1  1.27s           2025-12-08T22:29:36
+/opt/airflow/dags/dag_metals.py                                      0          -1  1.30s           2025-12-08T22:29:08
+/opt/airflow/dags/test_ingestion_dag.py                              0          -1  1.26s           2025-12-08T22:29:10
+================================================================================
+[2025-12-08T22:29:38.755+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_historical_load.py exited with return code 1.
+[2025-12-08T22:29:39.913+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_metals.py exited with return code 1.
+[2025-12-08T22:29:40.698+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_currencies.py exited with return code 1.
+[2025-12-08T22:29:40.722+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_brent_eia.py exited with return code 1.
+[2025-12-08T22:29:41.609+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_brent_moex.py exited with return code 1.
+[2025-12-08T22:29:42.024+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/test_ingestion_dag.py exited with return code 1.
+[2025-12-08T22:29:52.777+0000] {manager.py:1017} ERROR - Processor for /opt/airflow/dags/dag_build_mart.py exited with return code 1.
+[2025-12-08T22:30:08.127+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   0          -1  0.79s           2025-12-08T22:29:40
+/opt/airflow/dags/dag_brent_moex.py                                  0          -1  0.89s           2025-12-08T22:29:41
+/opt/airflow/dags/dag_build_mart.py                                  0          -1  0.26s           2025-12-08T22:29:52
+/opt/airflow/dags/dag_currencies.py                                  0          -1  0.89s           2025-12-08T22:29:40
+/opt/airflow/dags/dag_historical_load.py                             0          -1  0.91s           2025-12-08T22:29:38
+/opt/airflow/dags/dag_metals.py                                      0          -1  1.13s           2025-12-08T22:29:39
+/opt/airflow/dags/test_ingestion_dag.py                              0          -1  1.08s           2025-12-08T22:29:42
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.11s           2025-12-08T22:30:06
+/opt/airflow/dags/dag_build_mart copy 3.py                           1           0  0.12s           2025-12-08T22:29:53
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.18s           2025-12-08T22:29:52
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.14s           2025-12-08T22:30:07
+================================================================================
+[2025-12-08T22:30:38.379+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.19s           2025-12-08T22:30:11
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.19s           2025-12-08T22:30:12
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.10s           2025-12-08T22:30:36
+/opt/airflow/dags/dag_build_mart copy 3.py                           1           0  0.10s           2025-12-08T22:30:24
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.09s           2025-12-08T22:30:22
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.15s           2025-12-08T22:30:23
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.21s           2025-12-08T22:30:11
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.18s           2025-12-08T22:30:09
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.17s           2025-12-08T22:30:37
+/opt/airflow/dags/dag_metals.py                                      1           0  0.21s           2025-12-08T22:30:10
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.20s           2025-12-08T22:30:12
+================================================================================
+[2025-12-08T22:31:08.554+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.20s           2025-12-08T22:30:41
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.17s           2025-12-08T22:30:43
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.08s           2025-12-08T22:31:06
+/opt/airflow/dags/dag_build_mart copy 3.py                           1           0  0.09s           2025-12-08T22:30:54
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.13s           2025-12-08T22:30:53
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.10s           2025-12-08T22:30:53
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.21s           2025-12-08T22:30:41
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.23s           2025-12-08T22:30:39
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.17s           2025-12-08T22:31:07
+/opt/airflow/dags/dag_metals.py                                      1           0  0.21s           2025-12-08T22:30:40
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.22s           2025-12-08T22:30:43
+================================================================================
+[2025-12-08T22:31:20.374+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2025-12-08T22:31:20.563+0000] {manager.py:741} INFO - There are 11 files in /opt/airflow/dags
+[2025-12-08T22:31:39.149+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.19s           2025-12-08T22:31:12
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.19s           2025-12-08T22:31:13
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.10s           2025-12-08T22:31:37
+/opt/airflow/dags/dag_build_mart copy 3.py                           1           0  0.10s           2025-12-08T22:31:24
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.11s           2025-12-08T22:31:23
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.16s           2025-12-08T22:31:23
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.20s           2025-12-08T22:31:12
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.18s           2025-12-08T22:31:09
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.15s           2025-12-08T22:31:38
+/opt/airflow/dags/dag_metals.py                                      1           0  0.17s           2025-12-08T22:31:11
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.16s           2025-12-08T22:31:13
+================================================================================
+[2025-12-08T22:32:09.301+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.18s           2025-12-08T22:31:42
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.23s           2025-12-08T22:31:43
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.08s           2025-12-08T22:32:07
+/opt/airflow/dags/dag_build_mart copy 3.py                           1           0  0.09s           2025-12-08T22:31:55
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.16s           2025-12-08T22:31:53
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.09s           2025-12-08T22:31:53
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.22s           2025-12-08T22:31:42
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.18s           2025-12-08T22:31:40
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.13s           2025-12-08T22:32:08
+/opt/airflow/dags/dag_metals.py                                      1           0  0.17s           2025-12-08T22:31:41
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.20s           2025-12-08T22:31:43
+================================================================================
+[2025-12-08T22:32:39.438+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.16s           2025-12-08T22:32:12
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.21s           2025-12-08T22:32:14
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.09s           2025-12-08T22:32:37
+/opt/airflow/dags/dag_build_mart copy 3.py                           1           0  0.08s           2025-12-08T22:32:25
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.11s           2025-12-08T22:32:24
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.15s           2025-12-08T22:32:24
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.19s           2025-12-08T22:32:12
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.17s           2025-12-08T22:32:10
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.17s           2025-12-08T22:32:38
+/opt/airflow/dags/dag_metals.py                                      1           0  0.16s           2025-12-08T22:32:11
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.19s           2025-12-08T22:32:14
+================================================================================
+[2025-12-08T22:33:09.791+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                   PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_brent_eia.py                                   1           0  0.20s           2025-12-08T22:32:43
+/opt/airflow/dags/dag_brent_moex.py                                  1           0  0.17s           2025-12-08T22:32:44
+/opt/airflow/dags/dag_build_mart copy 2.py                           1           0  0.09s           2025-12-08T22:33:07
+/opt/airflow/dags/dag_build_mart copy 3.py                           1           0  0.09s           2025-12-08T22:32:55
+/opt/airflow/dags/dag_build_mart copy.py                             1           0  0.14s           2025-12-08T22:32:54
+/opt/airflow/dags/dag_build_mart.py                                  1           0  0.11s           2025-12-08T22:32:54
+/opt/airflow/dags/dag_currencies.py                                  1           0  0.20s           2025-12-08T22:32:43
+/opt/airflow/dags/dag_historical_load.py                             1           0  0.16s           2025-12-08T22:32:40
+/opt/airflow/dags/dag_load_vault.py                                  1           0  0.15s           2025-12-08T22:33:08
+/opt/airflow/dags/dag_metals.py                                      1           0  0.14s           2025-12-08T22:32:41
+/opt/airflow/dags/test_ingestion_dag.py                              1           0  0.14s           2025-12-08T22:32:44
+================================================================================
