@@ -75,16 +75,8 @@ def create_vault_tables(cur):
     """
 
     # Безопасное создание схемы vault (избегаем UniqueViolation)
-    cur.execute("""
-        DO $$
-        BEGIN
-            IF NOT EXISTS (
-                SELECT 1 FROM pg_namespace WHERE nspname = 'vault'
-            ) THEN
-                EXECUTE 'CREATE SCHEMA vault';
-            END IF;
-        END$$;
-    """)
+    cur.execute("CREATE SCHEMA IF NOT EXISTS vault;")
+
 
     # ----------------------
     # HUBS
@@ -588,7 +580,7 @@ def load_vault():
 # ----------------------------------------------------------
 
 with DAG(
-    "dag_load_vault",
+    "etl_stage_2_load_vault_from_minio",
     start_date=datetime(2024, 1, 1),
     schedule_interval="0 10 * * *",
     catchup=False,
@@ -596,6 +588,6 @@ with DAG(
 ) as dag:
 
     load_task = PythonOperator(
-        task_id="load_vault_from_minio",
+        task_id="built_vault_from_minio",
         python_callable=load_vault,
     )

@@ -314,24 +314,24 @@ def build_mart(**context):
 # Описание DAG
 # -----------------------------
 default_args = {
-    "owner": "bauman_student",
+    "owner": "petr",
     "depends_on_past": False,
     "retries": 1,
     "retry_delay": timedelta(minutes=5),
 }
 
 with DAG(
-    dag_id="dag_build_mart",
+    dag_id="etl_stage_3_normalize_data_and_load_datamart",
     description="Пересборка витрины mart из Data Vault (Brent FF, currencies, metals)",
     start_date=datetime(2024, 1, 1),
     schedule_interval="@daily",
     catchup=False,
     default_args=default_args,
-    tags=["mart", "datavault", "bauman_vkr"],
+    tags=["datamart"],
 ) as dag:
 
     build_mart_task = PythonOperator(
-        task_id="build_mart",
+        task_id="build_DataMart",
         python_callable=build_mart,
         provide_context=True,
     )

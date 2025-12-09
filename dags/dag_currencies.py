@@ -20,10 +20,11 @@ def load_currencies():
 
 
 with DAG(
-    dag_id="currencies_cbr.ru",
+    dag_id="test_nonhistorical_currency_yesterday_cbr",
     start_date=datetime(2024, 1, 1),
     schedule_interval="0 9 * * *",
     catchup=False,
+    tags=["test"],    
 ) as dag:
 
     PythonOperator(

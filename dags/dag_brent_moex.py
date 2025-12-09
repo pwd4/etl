@@ -41,11 +41,11 @@ def load_latest_brent():
 
 
 with DAG(
-    dag_id="brent_moex_daily",
+    dag_id="test_nonhistorical_brent_moex_daily",
     start_date=datetime(2024, 1, 1),
     schedule_interval="0 10 * * *",   # ежедневно 10:00
     catchup=False,
-    tags=["brent", "moex"]
+    tags=["test"]
 ) as dag:
 
     PythonOperator(

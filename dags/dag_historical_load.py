@@ -180,14 +180,14 @@ def load_historical():
 # -------------------------------------------------------
 
 with DAG(
-    dag_id="historical_load",
+    dag_id="etl_stage_1_historical_load_from_sources",
     start_date=datetime(2024, 1, 1),
     schedule_interval=None,  # вручную
     catchup=False,
-    tags=["historical-1", "etl"]
+    tags=["historical", "cbr.ru_currency", "cbr.ru_metals", "brent_moex", "brent_eia"]
 ) as dag:
 
     PythonOperator(
-        task_id="run_historical_load",
+        task_id="сбор_исторических_данных_из_источников",
         python_callable=load_historical,
     )

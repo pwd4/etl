@@ -55,11 +55,11 @@ def fetch_brent_latest():
 
 
 with DAG(
-    dag_id="brent_eia_daily",
+    dag_id="test_nonhistorical_brent_eia_daily",
     start_date=datetime(2024, 1, 1),
     schedule_interval="0 10 * * *",
     catchup=False,
-    tags=["brent", "eia"]
+    tags=["test"]
 ) as dag:
 
     PythonOperator(
