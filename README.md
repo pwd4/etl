@@ -45,11 +45,15 @@ docker-compose up -d
 ### 5. Внимание! До запуска DAG's в Streamlit будет ошибка из-за отсутствия данных в БД
 
 
-### 6. Зайти в Airflow и запустить DAG's, потому что требуется сбор первоначальных данных
+### 6. Airflow ьудет перезапускаться и падать пока вы не поставите права на папку logs/ 
+- sudo chmod -R 777 logs/
+
+
+### 7. Зайти в Airflow и запустить DAG's, потому что требуется сбор первоначальных данных
 - stage_1 - сбор исторических данных в MinIO (где-то 1 час работает сбор)
 - stage_2 - DAG from MinIO to vault
 - stage_3 - DAG from vault to mart
 - service_reset_vault_and_mart - этот DAG делает CASCADE DROP vault/mart
 
 
-### 7. Войти в UI Streamlit и использовать сервис
+### 8. Войти в UI Streamlit и использовать сервис
