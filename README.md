@@ -18,6 +18,8 @@ End-to-end система для сбора, обработки данных и 
 - Python 3.10+
 
 ### 2. Клонирование и запуск
+- git clone https://github.com/pwd4/currency_forecast_system.git
+
 ```bash
 git clone git@github.com:pwd4/etl.git
 cd currency_forecast_system
