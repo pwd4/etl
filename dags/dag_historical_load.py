@@ -1,14 +1,15 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
-import json
 import requests
 import boto3
 from botocore.exceptions import ClientError
+import json
 
 from src.data_ingestion.cbr_client import CBRClient
 from src.data_ingestion.moex_client import MoexClient
 from src.data_ingestion.storage import save_json_to_minio
+
 
 EIA_API_KEY = "igQPBkvoO0cUVZWGzP32EzK4I36Cg0te88QLLlaB"
 EIA_URL = "https://api.eia.gov/v2/petroleum/pri/spt/data/"
@@ -18,9 +19,10 @@ END_DATE = "2025-12-31"
 
 BUCKET = "currency-data"
 
-# -------------------------------------------------------
-# MinIO helper
-# -------------------------------------------------------
+
+# ---------------------------
+# MinIO helpers
+# ---------------------------
 
 def minio_client():
     return boto3.client(
@@ -31,41 +33,34 @@ def minio_client():
     )
 
 
-def minio_has_key(prefix, date_iso):
-    """
-    Проверяет, существует ли файл historical/<prefix>/<date>.json в MinIO.
-    """
-    client = minio_client()
+def minio_has(prefix, date_iso):
     key = f"historical/{prefix}/{date_iso}.json"
-
     try:
-        client.head_object(Bucket=BUCKET, Key=key)
+        minio_client().head_object(Bucket=BUCKET, Key=key)
         return True
     except ClientError:
         return False
 
 
-# -------------------------------------------------------
-# UNIVERSAL FALLBACK LOGIC
-# -------------------------------------------------------
+# ---------------------------
+# Fallback logic
+# ---------------------------
 
-def fetch_with_fallback(fetch_fn, target_date, max_back_days=10):
-    dt = datetime.strptime(target_date, "%Y-%m-%d")
-
-    for back in range(max_back_days + 1):
+def fetch_with_fallback(fetch_fn, date_iso, max_back=10):
+    dt = datetime.strptime(date_iso, "%Y-%m-%d")
+    for back in range(max_back + 1):
         d = (dt - timedelta(days=back)).strftime("%Y-%m-%d")
         result = fetch_fn(d)
         if result:
             return result, d
+    return [], None
 
-    return None, None
 
+# ---------------------------
+# FETCH functions
+# ---------------------------
 
-# -------------------------------------------------------
-# FETCH FUNCTIONS FOR EACH SOURCE
-# -------------------------------------------------------
-
-def fetch_currencies(date_iso):
+def fetch_currency(date_iso):
     cbr = CBRClient()
     d = datetime.strptime(date_iso, "%Y-%m-%d").strftime("%d/%m/%Y")
     return cbr.get_currency_rates(d)
@@ -91,7 +86,6 @@ def fetch_brent_eia(date_iso):
         "end": date_iso,
         "api_key": EIA_API_KEY
     }
-
     try:
         r = requests.get(EIA_URL, params=params, timeout=10)
         r.raise_for_status()
@@ -101,93 +95,115 @@ def fetch_brent_eia(date_iso):
         return []
 
 
-# -------------------------------------------------------
-# MAIN HISTORICAL TASK
-# -------------------------------------------------------
+# ---------------------------
+# PARALLEL LOADERS
+# ---------------------------
 
-def load_historical():
-    """
-    Загружает исторические данные за год.
-    Теперь **не делает запросы по API**, если файл уже есть в MinIO.
-    """
-
+def load_currency_historical():
     start = datetime.strptime(START_DATE, "%Y-%m-%d")
     end = datetime.strptime(END_DATE, "%Y-%m-%d")
-
     day = start
+
     while day <= end:
         date_iso = day.strftime("%Y-%m-%d")
 
-        print(f"\n=== DATE {date_iso} ===")
-
-        # ----------------------------------------------------
-        # 1. Пропускаем дату, если все четыре источника уже есть
-        # ----------------------------------------------------
-
-        skip_cur = minio_has_key("currencies", date_iso)
-        skip_met = minio_has_key("metals", date_iso)
-        skip_bmoex = minio_has_key("brent_moex", date_iso)
-        skip_beia = minio_has_key("brent_eia", date_iso)
-
-        if skip_cur and skip_met and skip_bmoex and skip_beia:
-            print(f"Дата {date_iso}: уже есть все данные → пропускаем")
-            day += timedelta(days=1)
-            continue
-
-        # ----------------------------------------------------
-        # 2. Догружаем только отсутствующие источники
-        # ----------------------------------------------------
-
-        # --- CURRENCIES ---
-        if not skip_cur:
-            cur_rows, cur_actual = fetch_with_fallback(fetch_currencies, date_iso)
+        if not minio_has("currencies", date_iso):
+            rows, actual = fetch_with_fallback(fetch_currency, date_iso)
             save_json_to_minio(
-                {"target": date_iso, "actual": cur_actual, "records": cur_rows or []},
+                {"target": date_iso, "actual": actual, "records": rows},
                 f"historical/currencies/{date_iso}.json"
             )
 
-        # --- METALS ---
-        if not skip_met:
-            met_rows, met_actual = fetch_with_fallback(fetch_metals, date_iso)
+        day += timedelta(days=1)
+
+
+def load_metals_historical():
+    start = datetime.strptime(START_DATE, "%Y-%m-%d")
+    end = datetime.strptime(END_DATE, "%Y-%m-%d")
+    day = start
+
+    while day <= end:
+        date_iso = day.strftime("%Y-%m-%d")
+
+        if not minio_has("metals", date_iso):
+            rows, actual = fetch_with_fallback(fetch_metals, date_iso)
             save_json_to_minio(
-                {"target": date_iso, "actual": met_actual, "records": met_rows or []},
+                {"target": date_iso, "actual": actual, "records": rows},
                 f"historical/metals/{date_iso}.json"
             )
 
-        # --- BRENT MOEX ---
-        if not skip_bmoex:
-            br_moex_rows, br_moex_actual = fetch_with_fallback(fetch_brent_moex, date_iso)
+        day += timedelta(days=1)
+
+
+def load_brent_moex_historical():
+    start = datetime.strptime(START_DATE, "%Y-%m-%d")
+    end = datetime.strptime(END_DATE, "%Y-%m-%d")
+    day = start
+
+    while day <= end:
+        date_iso = day.strftime("%Y-%m-%d")
+
+        if not minio_has("brent_moex", date_iso):
+            rows, actual = fetch_with_fallback(fetch_brent_moex, date_iso)
             save_json_to_minio(
-                {"target": date_iso, "actual": br_moex_actual, "records": br_moex_rows or []},
+                {"target": date_iso, "actual": actual, "records": rows},
                 f"historical/brent_moex/{date_iso}.json"
             )
 
-        # --- BRENT EIA ---
-        if not skip_beia:
-            br_eia_rows, br_eia_actual = fetch_with_fallback(fetch_brent_eia, date_iso)
+        day += timedelta(days=1)
+
+
+def load_brent_eia_historical():
+    start = datetime.strptime(START_DATE, "%Y-%m-%d")
+    end = datetime.strptime(END_DATE, "%Y-%m-%d")
+    day = start
+
+    while day <= end:
+        date_iso = day.strftime("%Y-%m-%d")
+
+        if not minio_has("brent_eia", date_iso):
+            rows, actual = fetch_with_fallback(fetch_brent_eia, date_iso)
             save_json_to_minio(
-                {"target": date_iso, "actual": br_eia_actual, "records": br_eia_rows or []},
+                {"target": date_iso, "actual": actual, "records": rows},
                 f"historical/brent_eia/{date_iso}.json"
             )
 
         day += timedelta(days=1)
 
-    print("=== Historical load completed ===")
 
-
-# -------------------------------------------------------
-# DAG
-# -------------------------------------------------------
+# ---------------------------
+# DAG (parallel execution!)
+# ---------------------------
 
 with DAG(
     dag_id="etl_stage_1_historical_load_from_sources",
     start_date=datetime(2024, 1, 1),
-    schedule_interval=None,  # вручную
+    schedule_interval=None,
     catchup=False,
-    tags=["historical", "cbr.ru_currency", "cbr.ru_metals", "brent_moex", "brent_eia"]
+    concurrency=10,
+    max_active_runs=1,
+    tags=["historical"],
 ) as dag:
 
-    PythonOperator(
-        task_id="сбор_исторических_данных_из_источников",
-        python_callable=load_historical,
+    t1 = PythonOperator(
+        task_id="load_currency_historical",
+        python_callable=load_currency_historical,
     )
+
+    t2 = PythonOperator(
+        task_id="load_metals_historical",
+        python_callable=load_metals_historical,
+    )
+
+    t3 = PythonOperator(
+        task_id="load_brent_moex_historical",
+        python_callable=load_brent_moex_historical,
+    )
+
+    t4 = PythonOperator(
+        task_id="load_brent_eia_historical",
+        python_callable=load_brent_eia_historical,
+    )
+
+    # всё параллельно
+    [t1, t2, t3, t4]
