@@ -57,3 +57,10 @@ docker-compose up -d
 
 
 ### 8. Войти в UI Streamlit и использовать сервис
+
+----------
+## Related resources
+
+- Data Platform architecture: https://dataplatforms.ru
+- ETL development: https://etl-data.ru
+- Main site: https://etldata.ru
